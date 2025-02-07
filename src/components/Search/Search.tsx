@@ -1,78 +1,62 @@
 import './Search.css';
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchFilms } from '../../helpers/films-api.ts';
 import { Film, FilmsResponse } from '../../helpers/film.model.ts';
 import Button from '../Button/Button.tsx';
 
 interface SearchProps {
-  searchResultsReceived: (results: Film[]) => void;
+  searchResultsReceived: (results: Film[], error: Error | null) => void;
 }
 
-interface SearchState {
-  searchValue: string;
-  showLoader: boolean;
-}
+const Search: React.FC<SearchProps> = ({
+  searchResultsReceived,
+}: SearchProps) => {
+  const searchValueKey = 'searchValue';
+  const [searchValue, setSearchValue] = useState(
+    localStorage.getItem(searchValueKey) || ''
+  );
+  const [showLoader, setShowLoader] = useState(false);
 
-export default class Search extends Component<SearchProps, SearchState> {
-  private readonly searchValueKey = 'searchValue';
-
-  constructor(props: SearchProps) {
-    super(props);
-    this.state = {
-      searchValue: localStorage.getItem(this.searchValueKey) || '',
-      showLoader: false,
-    };
-  }
-
-  componentDidMount(): void {
-    if (this.state.searchValue) {
-      this.searchResults();
+  useEffect(() => {
+    if (searchValue) {
+      searchResults();
     }
-  }
+  }, []);
 
-  componentDidUpdate(prevProps: SearchProps, prevState: SearchState): void {
-    if (prevState.searchValue !== this.state.searchValue) {
-      localStorage.setItem(this.searchValueKey, this.state.searchValue);
-    }
-  }
+  useEffect(() => {
+    localStorage.setItem(searchValueKey, searchValue);
+  }, [searchValue]);
 
-  searchResults = async () => {
-    this.showLoader();
-    const response: FilmsResponse = await fetchFilms(this.state.searchValue);
-    this.props.searchResultsReceived(response.results);
-    this.hideLoader();
+  const searchResults = async () => {
+    setShowLoader(true);
+    const response: FilmsResponse = await fetchFilms(searchValue);
+    searchResultsReceived(response.results, null);
+    setShowLoader(false);
   };
 
-  handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ searchValue: event.target.value });
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
   };
 
-  private showLoader() {
-    this.setState({ showLoader: true });
-  }
-
-  private hideLoader() {
-    this.setState({ showLoader: false });
-  }
-  render() {
-    return (
-      <>
-        {this.state.showLoader && (
-          <div className={'loader-overlay'}>
-            <div className={'loader'}></div>
-          </div>
-        )}
-        <div>
-          <input
-            className={'search-input'}
-            type="text"
-            placeholder="Enter text here"
-            value={this.state.searchValue}
-            onChange={this.handleInputChange}
-          />
-          <Button onButtonClick={this.searchResults} text="Search here" />
+  return (
+    <>
+      {showLoader && (
+        <div className={'loader-overlay'}>
+          <div className={'loader'}></div>
         </div>
-      </>
-    );
-  }
-}
+      )}
+      <div>
+        <input
+          className={'search-input'}
+          type="text"
+          placeholder="Enter text here"
+          value={searchValue}
+          onChange={handleInputChange}
+        />
+        <Button onButtonClick={searchResults} text="Search here" />
+      </div>
+    </>
+  );
+};
+
+export default Search;
