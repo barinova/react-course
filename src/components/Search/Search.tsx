@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchFilms } from '../../helpers/films-api.ts';
 import { Film, FilmsResponse } from '../../helpers/film.model.ts';
 import Button from '../Button/Button.tsx';
+import Loader from '../Loader/Loader.tsx';
 
 interface SearchProps {
   searchResultsReceived: (results: Film[], error: Error | null) => void;
@@ -40,11 +41,7 @@ const Search: React.FC<SearchProps> = ({
 
   return (
     <>
-      {showLoader && (
-        <div className={'loader-overlay'}>
-          <div className={'loader'}></div>
-        </div>
-      )}
+      {showLoader && <Loader></Loader>}
       <div>
         <input
           className={'search-input'}
