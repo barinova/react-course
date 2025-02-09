@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Film } from '../../helpers/film.model.ts';
 import Pagination from '../Pagination/Pagination.tsx';
-import './Results.css';
+import './CardList.css';
 import { useSearchParams } from 'react-router-dom';
 import Details from '../Details/Details.tsx';
 import Button from '../Button/Button.tsx';
-import Loader from '../Loader/Loader.tsx';
+import Card from '../Card/Card.tsx';
 
 interface ResultProps {
   searchResults: Film[];
   error: Error | null;
 }
 
-const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
+const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageParam = searchParams.get('page') || '1';
   const detailsParam = searchParams.get('details');
@@ -23,8 +23,7 @@ const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
   const [currentDisplayedResults, setCurrentDisplayedResults] = useState<
     Film[]
   >([]);
-  const [selectedItem, setSelectedItem] = useState<Film | null>(null);
-  const [showLoader, setShowLoader] = useState(false);
+  const [selectedItemUrl, setSelectedItemUrl] = useState<string | null>(null);
 
   useEffect(() => {
     setTotalPages(Math.ceil(searchResults.length / displayedResultsPerPage));
@@ -36,20 +35,21 @@ const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
 
   useEffect(() => {
     if (!detailsParam) {
-      setSelectedItem(null); // Ensure details are cleared if there is no details param
+      setSelectedItemUrl(null);
       return;
     }
 
     const index = Number(detailsParam);
     const item =
       searchResults[(currentPage - 1) * displayedResultsPerPage + index];
-
     if (item) {
-      fetchItemDetails(item);
+      console.log('TETS1');
+      setSelectedItemUrl(item.url);
     } else {
-      setSelectedItem(null);
+      setSelectedItemUrl(null);
+      console.log('TETS2');
     }
-  }, [detailsParam, searchResults]);
+  }, [detailsParam, searchResults, currentPage]);
 
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
@@ -60,25 +60,14 @@ const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
     setCurrentDisplayedResults(searchResults.slice(startIndex, endIndex));
   };
 
-  const fetchItemDetails = async (item: Film) => {
-    setShowLoader(true);
-    try {
-      const response = await fetch(item.url);
-      const data = await response.json();
-      setSelectedItem(data);
-    } catch (error) {
-      throw Error(`Error while fetching details: ${error}`);
-    } finally {
-      setShowLoader(false);
-    }
-  };
-
-  const handleItemClick = (index: number) => {
+  const handleItemClick = (item: Film, index: number): void => {
     setSearchParams({ page: String(currentPage), details: String(index) });
+    setSelectedItemUrl(item.url);
   };
 
-  const closeDetails = () => {
+  const closeDetails = (): void => {
     setSearchParams({ page: String(currentPage) });
+    setSelectedItemUrl(null);
   };
 
   return (
@@ -86,26 +75,15 @@ const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
       <section className="results">
         <h3 className="results-header">Results</h3>
         {searchResults.length > 0 ? (
-          <table className="result-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentDisplayedResults.map((result: Film, index: number) => (
-                <tr key={index} onClick={() => handleItemClick(index)}>
-                  <td>{result.title}</td>
-                  <td className="results-description">
-                    <span>Director: {result.director}</span>
-                    <span>Producer: {result.producer}</span>
-                    <span>Release date: {result.release_date}</span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="card-list">
+            {currentDisplayedResults.map((result: Film, index: number) => (
+              <Card
+                key={index}
+                film={result}
+                onClick={() => handleItemClick(result, index)}
+              />
+            ))}
+          </div>
         ) : (
           <span className="results-empty">Empty search result</span>
         )}
@@ -117,13 +95,12 @@ const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
         />
       </section>
       <section>
-        {showLoader && <Loader></Loader>}
-
-        {selectedItem && <h1>Test {selectedItem.title}</h1>}
-        {selectedItem && (
-          <div>
-            <Button onButtonClick={closeDetails} text="Close Details" />
-            <Details item={selectedItem} />
+        {selectedItemUrl && (
+          <div className={'details-container'}>
+            <Details itemUrl={selectedItemUrl} />
+            <div className="details-close">
+              <Button onButtonClick={closeDetails} text="Close Details" />
+            </div>
           </div>
         )}
       </section>
@@ -131,4 +108,4 @@ const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
   );
 };
 
-export default Result;
+export default CardList;

@@ -23,7 +23,7 @@
 .results-header {
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
+  padding-block-start: 20px;
 }
 
 .results-description {
@@ -45,6 +45,11 @@
   section {
     flex-basis: 50%;
   }
+}
+
+.details-close {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .error {

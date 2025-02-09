@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './components/Header.tsx';
 import Search from './components/Search/Search.tsx';
-import Result from './components/Results/Result.tsx';
+import CardList from './components/CardList/CardList.tsx';
 import { useState } from 'react';
 import { Film } from './helpers/film.model.ts';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.tsx';
@@ -35,7 +35,7 @@ const App: React.FC = () => {
               element={
                 <div>
                   <Search searchResultsReceived={searchResultsReceived} />
-                  <Result searchResults={searchResults} error={error} />
+                  <CardList searchResults={searchResults} error={error} />
                 </div>
               }
             />
