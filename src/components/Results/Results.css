@@ -38,6 +38,15 @@
   font-style: italic;
 }
 
+.results-container {
+  display: flex;
+  gap: 20px;
+
+  section {
+    flex-basis: 50%;
+  }
+}
+
 .error {
   color: darkred;
 }

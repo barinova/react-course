@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { Film } from '../../helpers/film.model.ts';
 import Pagination from '../Pagination/Pagination.tsx';
 import './Results.css';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Details from '../Details/Details.tsx';
+import Button from '../Button/Button.tsx';
+import Loader from '../Loader/Loader.tsx';
 
 interface ResultProps {
   searchResults: Film[];
@@ -11,38 +13,78 @@ interface ResultProps {
 }
 
 const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
-  const { page, details } = useParams();
-  const displayedResultsPerPage = 5;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pageParam = searchParams.get('page') || '1';
+  const detailsParam = searchParams.get('details');
 
-  const [currentPage, setCurrentPage] = useState(Number(page) || 1);
+  const displayedResultsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(Number(pageParam));
   const [totalPages, setTotalPages] = useState(1);
   const [currentDisplayedResults, setCurrentDisplayedResults] = useState<
     Film[]
   >([]);
+  const [selectedItem, setSelectedItem] = useState<Film | null>(null);
+  const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
     setTotalPages(Math.ceil(searchResults.length / displayedResultsPerPage));
   }, [searchResults]);
 
   useEffect(() => {
-    if (currentPage > totalPages) {
-      setCurrentPage(1);
-    } else {
-      handlePageChange(currentPage);
+    handlePageChange(currentPage);
+  }, [currentPage, searchResults]);
+
+  useEffect(() => {
+    if (!detailsParam) {
+      setSelectedItem(null); // Ensure details are cleared if there is no details param
+      return;
     }
-  }, [currentPage, searchResults, totalPages]);
+
+    const index = Number(detailsParam);
+    const item =
+      searchResults[(currentPage - 1) * displayedResultsPerPage + index];
+
+    if (item) {
+      fetchItemDetails(item);
+    } else {
+      setSelectedItem(null);
+    }
+  }, [detailsParam, searchResults]);
 
   const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage); // Update current page
+    setCurrentPage(newPage);
+    setSearchParams({ page: newPage.toString() });
+
     const startIndex = (newPage - 1) * displayedResultsPerPage;
     const endIndex = startIndex + displayedResultsPerPage;
     setCurrentDisplayedResults(searchResults.slice(startIndex, endIndex));
   };
 
+  const fetchItemDetails = async (item: Film) => {
+    setShowLoader(true);
+    try {
+      const response = await fetch(item.url);
+      const data = await response.json();
+      setSelectedItem(data);
+    } catch (error) {
+      throw Error(`Error while fetching details: ${error}`);
+    } finally {
+      setShowLoader(false);
+    }
+  };
+
+  const handleItemClick = (index: number) => {
+    setSearchParams({ page: String(currentPage), details: String(index) });
+  };
+
+  const closeDetails = () => {
+    setSearchParams({ page: String(currentPage) });
+  };
+
   return (
-    <div className="results">
-      <h3 className="results-header">Results</h3>
-      <section>
+    <div className={'results-container'}>
+      <section className="results">
+        <h3 className="results-header">Results</h3>
         {searchResults.length > 0 ? (
           <table className="result-table">
             <thead>
@@ -52,8 +94,8 @@ const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
               </tr>
             </thead>
             <tbody>
-              {currentDisplayedResults.map((result, index) => (
-                <tr key={index}>
+              {currentDisplayedResults.map((result: Film, index: number) => (
+                <tr key={index} onClick={() => handleItemClick(index)}>
                   <td>{result.title}</td>
                   <td className="results-description">
                     <span>Director: {result.director}</span>
@@ -67,19 +109,24 @@ const Result: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
         ) : (
           <span className="results-empty">Empty search result</span>
         )}
+
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages || 1}
+          onPageChange={handlePageChange}
+        />
       </section>
+      <section>
+        {showLoader && <Loader></Loader>}
 
-      {details && (
-        <section>
-          <Details />
-        </section>
-      )}
-
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+        {selectedItem && <h1>Test {selectedItem.title}</h1>}
+        {selectedItem && (
+          <div>
+            <Button onButtonClick={closeDetails} text="Close Details" />
+            <Details item={selectedItem} />
+          </div>
+        )}
+      </section>
     </div>
   );
 };

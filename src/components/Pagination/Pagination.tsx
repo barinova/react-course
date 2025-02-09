@@ -1,3 +1,5 @@
+import './Pagination.scss';
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -13,7 +15,7 @@ const Pagination: React.FC<PaginationProps> = ({
   const handlePreviousPage = () => onPageChange(currentPage - 1);
 
   return (
-    <div>
+    <div className="pagination">
       <button onClick={handlePreviousPage} disabled={currentPage === 1}>
         Previous
       </button>

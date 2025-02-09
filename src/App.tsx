@@ -29,9 +29,9 @@ const App: React.FC = () => {
       <main>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Navigate to="/search/1" />} />
+            <Route path="/" element={<Navigate to="/search" />} />
             <Route
-              path="/search/:page/:details?"
+              path="/search"
               element={
                 <div>
                   <Search searchResultsReceived={searchResultsReceived} />

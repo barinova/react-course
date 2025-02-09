@@ -5,6 +5,7 @@ export interface Film {
   director: string;
   producer: string;
   release_date: string;
+  url: string;
 }
 
 export interface FilmsResponse {
