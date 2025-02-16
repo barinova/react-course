@@ -14,6 +14,7 @@ const Details: React.FC<DetailsProps> = ({ itemUrl }) => {
   useEffect(() => {
     const fetchItemDetails = async () => {
       setShowLoader(true);
+
       try {
         const response = await fetch(itemUrl);
         const data = await response.json();

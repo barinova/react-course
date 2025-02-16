@@ -4,6 +4,7 @@ import { fetchFilms } from '../../helpers/films-api.ts';
 import { Film, FilmsResponse } from '../../helpers/film.model.ts';
 import Button from '../Button/Button.tsx';
 import Loader from '../Loader/Loader.tsx';
+import useLocalStorage from '../../helpers/local-storage/local-storage-hook.ts';
 
 interface SearchProps {
   searchResultsReceived: (results: Film[], error: Error | null) => void;
@@ -13,25 +14,25 @@ const Search: React.FC<SearchProps> = ({
   searchResultsReceived,
 }: SearchProps) => {
   const searchValueKey = 'searchValue';
-  const [searchValue, setSearchValue] = useState(
-    localStorage.getItem(searchValueKey) || ''
-  );
+  const [searchItem, setSearchItem] = useLocalStorage(searchValueKey, '');
+  const [searchValue, setSearchValue] = useState(searchItem || '');
   const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
-    if (searchValue) {
-      searchResults();
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(searchValueKey, searchValue);
+    setSearchItem(searchValue);
+    searchResults();
   }, [searchValue]);
 
   const searchResults = async () => {
     setShowLoader(true);
     const response: FilmsResponse = await fetchFilms(searchValue);
-    searchResultsReceived(response.results, null);
+
+    if (response?.results) {
+      searchResultsReceived(response.results, null);
+    } else {
+      searchResultsReceived([], new Error('No results found'));
+    }
+
     setShowLoader(false);
   };
 

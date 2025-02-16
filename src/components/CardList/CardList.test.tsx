@@ -113,33 +113,27 @@ describe('CardList Component', () => {
     expect(document.querySelector('.details-container')).toBeNull();
   });
 
-  test('handles details query param correctly', async () => {
+  test('clears details param and keeps page param when search results update', async () => {
     const setSearchParams = jest.fn();
     (useSearchParams as jest.Mock).mockReturnValue([
-      new URLSearchParams('details=0'),
+      new URLSearchParams('details=1&page=2'),
       setSearchParams,
     ]);
 
     await act(async () => {
-      render(<CardList searchResults={mockFilms} error={null} />);
+      const { rerender } = render(
+        <CardList searchResults={mockFilms} error={null} />
+      );
+      const filmsMock: Film[] = Array(9).fill(mockFilms[0]);
+      rerender(<CardList searchResults={filmsMock} error={null} />);
     });
 
-    expect(document.querySelector('.details-container')).toBeTruthy();
-    expect(document.querySelector('.details-close')).toBeTruthy();
-  });
+    expect(setSearchParams).toHaveBeenCalledWith(expect.any(URLSearchParams));
 
-  test('handles details query param being null', async () => {
-    const setSearchParams = jest.fn();
-    (useSearchParams as jest.Mock).mockReturnValue([
-      new URLSearchParams(),
-      setSearchParams,
-    ]);
+    const updatedParams = setSearchParams.mock.calls[0][0];
 
-    await act(async () => {
-      render(<CardList searchResults={mockFilms} error={null} />);
-    });
-
-    expect(document.querySelector('.details-container')).toBeNull();
+    expect(updatedParams.get('details')).toBeNull();
+    expect(updatedParams.get('page')).toBe('2');
   });
 
   test('handles invalid details param correctly', async () => {

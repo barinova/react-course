@@ -15,11 +15,9 @@ interface ResultProps {
 const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageParam = searchParams.get('page') || '1';
-  const detailsParam = searchParams.get('details');
-
   const displayedResultsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(Number(pageParam));
-  const [totalPages, setTotalPages] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
   const [currentDisplayedResults, setCurrentDisplayedResults] = useState<
     Film[]
   >([]);
@@ -27,37 +25,31 @@ const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
 
   useEffect(() => {
     setTotalPages(Math.ceil(searchResults.length / displayedResultsPerPage));
+    updateDisplayedResults(currentPage);
+    setSelectedItemUrl(null);
+
+    searchParams.delete('details');
   }, [searchResults]);
 
   useEffect(() => {
-    handlePageChange(currentPage);
-  }, [currentPage, searchResults]);
+    const urlPage = searchParams.get('page');
+
+    if (totalPages && Number(urlPage) > totalPages) {
+      console.log('totalPages', totalPages, 'urlPage', urlPage);
+      setCurrentPage(1);
+      setSearchParams({ page: currentPage.toString() });
+    }
+  }, [totalPages]);
 
   useEffect(() => {
-    if (!detailsParam) {
-      setSelectedItemUrl(null);
-      return;
-    }
-
-    const index = Number(detailsParam);
-    const item =
-      searchResults[(currentPage - 1) * displayedResultsPerPage + index];
-    if (item) {
-      console.log('TETS1');
-      setSelectedItemUrl(item.url);
-    } else {
-      setSelectedItemUrl(null);
-      console.log('TETS2');
-    }
-  }, [detailsParam, searchResults, currentPage]);
+    handlePageChange(currentPage);
+  }, [currentPage]);
 
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
-    setSearchParams({ page: newPage.toString() });
-
-    const startIndex = (newPage - 1) * displayedResultsPerPage;
-    const endIndex = startIndex + displayedResultsPerPage;
-    setCurrentDisplayedResults(searchResults.slice(startIndex, endIndex));
+    searchParams.set('page', newPage.toString());
+    setSearchParams(searchParams);
+    updateDisplayedResults(newPage);
   };
 
   const handleItemClick = (item: Film, index: number): void => {
@@ -68,6 +60,12 @@ const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
   const closeDetails = (): void => {
     setSearchParams({ page: String(currentPage) });
     setSelectedItemUrl(null);
+  };
+
+  const updateDisplayedResults = (currentPage: number) => {
+    const startIndex = (currentPage - 1) * displayedResultsPerPage;
+    const endIndex = startIndex + displayedResultsPerPage;
+    setCurrentDisplayedResults(searchResults.slice(startIndex, endIndex));
   };
 
   return (
