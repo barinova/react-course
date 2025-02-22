@@ -1,6 +1,12 @@
 .card {
+  display: flex;
   border: 1px solid #6969cc;
   border-radius: 4px;
   padding: 10px;
   margin-block: 10px;
+}
+
+.card-checkbox {
+  display: flex;
+  padding-inline-end: 20px;
 }

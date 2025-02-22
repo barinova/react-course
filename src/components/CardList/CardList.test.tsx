@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 import { Film } from '../../helpers/film.model';
 import CardList from './CardList.tsx';
-import { act } from 'react';
+import { act, MouseEventHandler } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 global.fetch = jest.fn(() =>
@@ -15,6 +15,18 @@ global.fetch = jest.fn(() =>
       }),
   })
 ) as jest.Mock;
+
+jest.mock('../Card/Card.tsx', () => {
+  const MockCard = (props: {
+    onClick: MouseEventHandler<HTMLDivElement> | undefined;
+  }) => (
+    <div className="card" onClick={props.onClick}>
+      Mock Card Component
+    </div>
+  );
+  MockCard.displayName = 'MockCard';
+  return MockCard;
+});
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),

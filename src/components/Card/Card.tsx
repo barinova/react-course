@@ -1,6 +1,9 @@
 import React from 'react';
 import { Film } from '../../helpers/film.model.ts';
 import './Card.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/store.ts';
+import { selectItem } from '../../store/selectedItemsSlice.ts';
 
 interface CardProps {
   film: Film;
@@ -8,15 +11,38 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ film, onClick }) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const isSelected = useSelector((state: RootState) =>
+    state.selectedItemsReducer.selectedItems.includes(film.title)
+  );
+
+  const handleCheckboxChange = () => {
+    dispatch(selectItem(film));
+  };
+
+  const checkboxClick = (event: React.MouseEvent<HTMLInputElement>) => {
+    event.stopPropagation();
+  };
+
   return (
-    <div className="card" onClick={onClick}>
-      <h3>{film.title}</h3>
-      <div className="card-details">
-        <p>Director: {film.director}</p>
-        <p>Producer: {film.producer}</p>
-        <p>Release date: {film.release_date}</p>
+    <section className="card" onClick={onClick}>
+      <div className="card-checkbox">
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={handleCheckboxChange}
+          onClick={checkboxClick}
+        />
       </div>
-    </div>
+      <div>
+        <h3>{film.title}</h3>
+        <div className="card-details">
+          <p>Director: {film.director}</p>
+          <p>Producer: {film.producer}</p>
+          <p>Release date: {film.release_date}</p>
+        </div>
+      </div>
+    </section>
   );
 };
 

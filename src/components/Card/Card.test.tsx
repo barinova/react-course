@@ -2,6 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Card from './Card';
 import { Film } from '../../helpers/film.model.ts';
+import { configureStore } from '@reduxjs/toolkit';
+import selectedItemsReducer from '../../store/selectedItemsSlice.ts';
+import { Provider } from 'react-redux';
 
 describe('Card Component', () => {
   const mockFilm: Film = {
@@ -13,9 +16,23 @@ describe('Card Component', () => {
     episode_id: 4,
     opening_crawl: 'It is a period of civil war...',
   };
+  const renderWithProvider = (ui: React.ReactElement) => {
+    const store = configureStore({
+      reducer: {
+        selectedItemsReducer,
+      },
+      preloadedState: {
+        selectedItemsReducer: {
+          selectedItems: [],
+        },
+      },
+    });
+
+    return render(<Provider store={store}>{ui}</Provider>);
+  };
 
   test('renders the card with correct film details', () => {
-    render(<Card film={mockFilm} onClick={() => {}} />);
+    renderWithProvider(<Card film={mockFilm} onClick={() => {}} />);
 
     expect(screen.getByText('A New Hope')).toBeInTheDocument();
     expect(screen.getByText('Director: George Lucas')).toBeInTheDocument();
@@ -27,7 +44,7 @@ describe('Card Component', () => {
 
   test('calls onClick when the card is clicked', () => {
     const handleClick = jest.fn();
-    render(<Card film={mockFilm} onClick={handleClick} />);
+    renderWithProvider(<Card film={mockFilm} onClick={handleClick} />);
 
     fireEvent.click(screen.getByText('A New Hope'));
     expect(handleClick).toHaveBeenCalledTimes(1);
