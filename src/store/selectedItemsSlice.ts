@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { Film } from '../helpers/film.model.ts';
 
 export interface SelectedItemsState {
-  selectedItems: string[];
+  selectedItems: Film[];
 }
 
 const initialState: SelectedItemsState = {
@@ -16,27 +16,26 @@ export const selectedItemsSlice = createSlice({
   reducers: {
     selectItem: (state, action: PayloadAction<Film>) => {
       const item = action.payload;
-      const isSelected = state.selectedItems.includes(item.title);
+      const isSelected = state.selectedItems.find(
+        (film: Film) => film.title === item.title
+      );
 
       if (isSelected) {
         state.selectedItems = state.selectedItems.filter(
-          (id) => id !== item.title
+          (film) => film.title !== item.title
         );
         return;
       }
 
-      state.selectedItems.push(item.title);
+      state.selectedItems.push(item);
     },
-    // decrement: (state) => {
-    //   state.value -= 1;
-    // },
-    // incrementByAmount: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload;
-    // },
+    clearItems: (state) => {
+      state.selectedItems = [];
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { selectItem } = selectedItemsSlice.actions;
+export const { selectItem, clearItems } = selectedItemsSlice.actions;
 
 export default selectedItemsSlice.reducer;

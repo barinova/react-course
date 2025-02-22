@@ -22,15 +22,17 @@ const Search: React.FC<SearchProps> = ({
     console.log('searchValue', searchValue);
   }, [searchValue]);
 
-  useEffect(() => {
+  useEffect((): void => {
     searchResultsReceived([], new Error('No results found'));
   }, [isError]);
 
-  useEffect(() => {
+  useEffect((): void => {
     searchResultsReceived(data || [], null);
   }, [data]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
     setSearchValue(event.target.value);
   };
 

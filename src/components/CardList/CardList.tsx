@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import Details from '../Details/Details.tsx';
 import Button from '../Button/Button.tsx';
 import Card from '../Card/Card.tsx';
+import Flyout from '../Flyout/Flyout.tsx';
 
 interface ResultProps {
   searchResults: Film[];
@@ -31,7 +32,7 @@ const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
     searchParams.delete('details');
   }, [searchResults]);
 
-  useEffect(() => {
+  useEffect((): void => {
     const urlPage = searchParams.get('page');
 
     if (totalPages && Number(urlPage) > totalPages) {
@@ -41,11 +42,11 @@ const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
     }
   }, [totalPages]);
 
-  useEffect(() => {
+  useEffect((): void => {
     handlePageChange(currentPage);
   }, [currentPage]);
 
-  const handlePageChange = (newPage: number) => {
+  const handlePageChange = (newPage: number): void => {
     setCurrentPage(newPage);
     searchParams.set('page', newPage.toString());
     setSearchParams(searchParams);
@@ -62,47 +63,51 @@ const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
     setSelectedItemUrl(null);
   };
 
-  const updateDisplayedResults = (currentPage: number) => {
+  const updateDisplayedResults = (currentPage: number): void => {
     const startIndex = (currentPage - 1) * displayedResultsPerPage;
     const endIndex = startIndex + displayedResultsPerPage;
     setCurrentDisplayedResults(searchResults.slice(startIndex, endIndex));
   };
 
   return (
-    <div className={'results-container'}>
-      <section className="results">
-        <h3 className="results-header">Results</h3>
-        {searchResults.length > 0 ? (
-          <div className="card-list">
-            {currentDisplayedResults.map((result: Film, index: number) => (
-              <Card
-                key={index}
-                film={result}
-                onClick={() => handleItemClick(result, index)}
-              />
-            ))}
-          </div>
-        ) : (
-          <span className="results-empty">Empty search result</span>
-        )}
-
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages || 1}
-          onPageChange={handlePageChange}
-        />
-      </section>
-      <section>
-        {selectedItemUrl && (
-          <div className={'details-container'}>
-            <Details itemUrl={selectedItemUrl} />
-            <div className="details-close">
-              <Button onButtonClick={closeDetails} text="Close Details" />
+    <>
+      <div className={'results-container'}>
+        <section className="results">
+          <h3 className="results-header">Results</h3>
+          {searchResults.length > 0 ? (
+            <div className="card-list">
+              {currentDisplayedResults.map((result: Film, index: number) => (
+                <Card
+                  key={index}
+                  film={result}
+                  onClick={() => handleItemClick(result, index)}
+                />
+              ))}
             </div>
-          </div>
-        )}
-      </section>
-    </div>
+          ) : (
+            <span className="results-empty">Empty search result</span>
+          )}
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages || 1}
+            onPageChange={handlePageChange}
+          />
+        </section>
+        <section>
+          {selectedItemUrl && (
+            <div className={'details-container'}>
+              <Details itemUrl={selectedItemUrl} />
+              <div className="details-close">
+                <Button onButtonClick={closeDetails} text="Close Details" />
+              </div>
+            </div>
+          )}
+        </section>
+      </div>
+
+      <Flyout />
+    </>
   );
 };
 

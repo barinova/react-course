@@ -7,7 +7,7 @@ describe('selectedItemsSlice', () => {
     selectedItems: [],
   };
 
-  test('should handle selectItem - add item', () => {
+  test('should add item', () => {
     const newItem: Film = {
       title: 'Film 1',
       director: '',
@@ -18,17 +18,14 @@ describe('selectedItemsSlice', () => {
       episode_id: 1,
     };
     const expectedState = {
-      selectedItems: [newItem.title],
+      selectedItems: [{ ...newItem }],
     };
     expect(selectedItemsReducer(initialState, selectItem(newItem))).toEqual(
       expectedState
     );
   });
 
-  test('should handle selectItem - remove item', () => {
-    const initialStateWithItem = {
-      selectedItems: ['Film 1'],
-    };
+  test('should remove item', () => {
     const newItem: Film = {
       title: 'Film 1',
       director: '',
@@ -37,6 +34,10 @@ describe('selectedItemsSlice', () => {
       url: '',
       opening_crawl: '',
       episode_id: 1,
+    };
+
+    const initialStateWithItem = {
+      selectedItems: [{ ...newItem }],
     };
     const expectedState = {
       selectedItems: [],

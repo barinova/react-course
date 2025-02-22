@@ -13,14 +13,14 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ film, onClick }) => {
   const dispatch = useDispatch<AppDispatch>();
   const isSelected = useSelector((state: RootState) =>
-    state.selectedItemsReducer.selectedItems.includes(film.title)
+    state.selectedItemsReducer.selectedItems.includes(film)
   );
 
-  const handleCheckboxChange = () => {
+  const handleCheckboxChange = (): void => {
     dispatch(selectItem(film));
   };
 
-  const checkboxClick = (event: React.MouseEvent<HTMLInputElement>) => {
+  const checkboxClick = (event: React.MouseEvent<HTMLInputElement>): void => {
     event.stopPropagation();
   };
 

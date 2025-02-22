@@ -16,6 +16,14 @@ global.fetch = jest.fn(() =>
   })
 ) as jest.Mock;
 
+jest.mock('../Flyout/Flyout.tsx', () => {
+  const MockFlyout = () => (
+    <div data-testid="mock-flyout">Mock Flyout Component</div>
+  );
+  MockFlyout.displayName = 'MockFlyout';
+  return MockFlyout;
+});
+
 jest.mock('../Card/Card.tsx', () => {
   const MockCard = (props: {
     onClick: MouseEventHandler<HTMLDivElement> | undefined;
