@@ -2,3 +2,7 @@
   font-family: 'Roboto Light', system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: ghostwhite;
 }
+
+body {
+  margin: 0;
+}

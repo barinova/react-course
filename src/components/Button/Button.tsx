@@ -1,18 +1,21 @@
-import { Component } from 'react';
 import './Button.css';
 
 interface ButtonProps {
   onButtonClick: () => void;
   text: string;
+  disabled?: boolean;
 }
 
-export default class Button extends Component<ButtonProps> {
-  render() {
-    const { onButtonClick, text } = this.props;
-    return (
-      <button className={'button'} onClick={onButtonClick}>
-        {text}
-      </button>
-    );
-  }
-}
+const Button: React.FC<ButtonProps> = ({
+  onButtonClick,
+  text,
+  disabled,
+}: ButtonProps) => {
+  return (
+    <button className={'button'} disabled={disabled} onClick={onButtonClick}>
+      {text}
+    </button>
+  );
+};
+
+export default Button;
