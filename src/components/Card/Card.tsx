@@ -3,7 +3,7 @@ import { Film } from '../../helpers/film.model.ts';
 import './Card.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store.ts';
-import { selectItem } from '../../store/selectedItemsSlice.ts';
+import { selectItem } from '../../store/selectedItemsSlice.tsx';
 
 interface CardProps {
   film: Film;

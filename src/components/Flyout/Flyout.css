@@ -12,8 +12,22 @@
   z-index: 1000;
 }
 
+.flyout-dark {
+  .flyout {
+    background-color: #4c4c4c;
+    .flyout-close {
+      color: white;
+    }
+  }
+}
+
+.flyout-light {
+  .flyout {
+    background-color: white;
+  }
+}
+
 .flyout {
-  background-color: white;
   border: 1px solid #ccc;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -33,7 +47,6 @@
 
 .flyout-close {
   background: none;
-  border: none;
   font-size: 10px;
   cursor: pointer;
   color: black;

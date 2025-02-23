@@ -1,7 +1,39 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.app {
+  padding: 20px;
+  height: 100%;
+}
+
+.app.dark {
+  background-color: #4c4c4c;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  span,
+  p {
+    color: white;
+  }
+}
+
+app.light {
+  background-color: white;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  span,
+  p {
+    color: black;
+  }
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .trigger-button {

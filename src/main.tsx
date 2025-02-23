@@ -5,6 +5,7 @@ import App from './App.tsx';
 
 import { store } from './store/store.ts';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from './components/ThemeSwitcher/ThemeContext.tsx';
 
 const container = document.getElementById('root');
 
@@ -17,7 +18,9 @@ const root = createRoot(container);
 root.render(
   <Provider store={store}>
     <StrictMode>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </StrictMode>
   </Provider>
 );

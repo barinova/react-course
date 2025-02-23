@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import selectedItemsReducer from './selectedItemsSlice.ts';
+import selectedItemsReducer from './selectedItemsSlice.tsx';
 import { filmsApi } from './api/film.api.ts';
 
 export const store = configureStore({

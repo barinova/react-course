@@ -148,12 +148,8 @@ describe('CardList Component', () => {
       rerender(<CardList searchResults={filmsMock} error={null} />);
     });
 
-    expect(setSearchParams).toHaveBeenCalledWith(expect.any(URLSearchParams));
-
-    const updatedParams = setSearchParams.mock.calls[0][0];
-
-    expect(updatedParams.get('details')).toBeNull();
-    expect(updatedParams.get('page')).toBe('2');
+    const expectedParams = new URLSearchParams('page=2');
+    expect(setSearchParams).toHaveBeenCalledWith(expectedParams);
   });
 
   test('handles invalid details param correctly', async () => {

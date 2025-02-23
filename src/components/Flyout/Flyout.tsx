@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import { clearItems } from '../../store/selectedItemsSlice';
+import { clearItems } from '../../store/selectedItemsSlice.tsx';
 import './Flyout.css';
 import { Film } from '../../helpers/film.model.ts';
 import Button from '../Button/Button.tsx';
+import { useTheme } from '../ThemeSwitcher/ThemeContext.tsx';
 
 const Flyout: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const { isDarkTheme } = useTheme();
+
   const selectedItems: Film[] = useSelector(
     (state: RootState) => state.selectedItemsReducer.selectedItems
   );
   const dispatch = useDispatch();
-  const [isVisible, setIsVisible] = useState(true);
 
   useEffect((): void => {
     setIsVisible(selectedItems?.length !== 0);
-    console.log('selectedItems', selectedItems);
   }, [selectedItems]);
 
   const handleUnselectAll = (): void => {
@@ -50,7 +52,9 @@ const Flyout: React.FC = () => {
     <>
       {' '}
       {isVisible && (
-        <section className="flyout-backdrop">
+        <section
+          className={`flyout-backdrop ${isDarkTheme ? 'flyout-dark' : 'flyout-light'}`}
+        >
           <div className="flyout">
             <div className="flyout-title">
               <h3>Selection notification</h3>

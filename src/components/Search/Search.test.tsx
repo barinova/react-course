@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import Search from './Search.tsx';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import selectedItemsReducer from '../../store/selectedItemsSlice.ts';
+import selectedItemsReducer from '../../store/selectedItemsSlice.tsx';
 import { filmsApi } from '../../store/api/film.api.ts';
 
 jest.mock('../../helpers/films-api', () => ({

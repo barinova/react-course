@@ -36,7 +36,6 @@ const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
     const urlPage = searchParams.get('page');
 
     if (totalPages && Number(urlPage) > totalPages) {
-      console.log('totalPages', totalPages, 'urlPage', urlPage);
       setCurrentPage(1);
       setSearchParams({ page: currentPage.toString() });
     }

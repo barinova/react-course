@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import Card from './Card';
 import { Film } from '../../helpers/film.model.ts';
 import { configureStore } from '@reduxjs/toolkit';
-import selectedItemsReducer from '../../store/selectedItemsSlice.ts';
+import selectedItemsReducer from '../../store/selectedItemsSlice.tsx';
 import { Provider } from 'react-redux';
 
 describe('Card Component', () => {

@@ -1,5 +1,5 @@
 // selectedItemsSlice.test.ts
-import selectedItemsReducer, { selectItem } from './selectedItemsSlice.ts';
+import selectedItemsReducer, { selectItem } from './selectedItemsSlice.tsx';
 import { Film } from '../helpers/film.model.ts';
 
 describe('selectedItemsSlice', () => {

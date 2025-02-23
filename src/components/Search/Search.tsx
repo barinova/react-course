@@ -19,7 +19,6 @@ const Search: React.FC<SearchProps> = ({
 
   useEffect(() => {
     setSearchItem(searchValue);
-    console.log('searchValue', searchValue);
   }, [searchValue]);
 
   useEffect((): void => {
