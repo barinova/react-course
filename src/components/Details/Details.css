@@ -1,0 +1,10 @@
+.details {
+  padding-top: 20px;
+}
+
+.details-description {
+  border: 1px solid #6969cc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-block-end: 10px;
+}

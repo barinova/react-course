@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import './Button.css';
 
 interface ButtonProps {
@@ -6,13 +5,15 @@ interface ButtonProps {
   text: string;
 }
 
-export default class Button extends Component<ButtonProps> {
-  render() {
-    const { onButtonClick, text } = this.props;
-    return (
-      <button className={'button'} onClick={onButtonClick}>
-        {text}
-      </button>
-    );
-  }
-}
+const Button: React.FC<ButtonProps> = ({
+  onButtonClick,
+  text,
+}: ButtonProps) => {
+  return (
+    <button className={'button'} onClick={onButtonClick}>
+      {text}
+    </button>
+  );
+};
+
+export default Button;
