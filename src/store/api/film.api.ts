@@ -12,7 +12,12 @@ export const filmsApi = createApi({
       }),
       transformResponse: (response: FilmsResponse) => response?.results || [],
     }),
+    getFilmById: builder.query<Film, string>({
+      query: (id: string) => ({
+        url: `films/${id}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetFilmsQuery } = filmsApi;
+export const { useGetFilmsQuery, useGetFilmByIdQuery } = filmsApi;

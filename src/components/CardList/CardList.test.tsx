@@ -3,6 +3,7 @@ import { Film } from '../../helpers/film.model';
 import CardList from './CardList.tsx';
 import { act, MouseEventHandler } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useTheme } from '../ThemeSwitcher/ThemeContext.tsx';
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
@@ -41,6 +42,23 @@ jest.mock('react-router-dom', () => ({
   useSearchParams: jest.fn(),
 }));
 
+jest.mock('../../store/api/film.api.ts', () => ({
+  useGetFilmByIdQuery: jest.fn().mockReturnValue({
+    isFetching: false,
+    isError: false,
+    data: {
+      title: 'Mock Film',
+      director: 'Mock Director',
+      producer: 'Mock Producer',
+      release_date: '2000-01-01',
+    },
+  }),
+  filmsApi: {
+    reducerPath: 'filmsApi',
+    reducer: (state = {}) => state,
+  },
+}));
+
 const mockFilms: Film[] = [
   {
     title: 'Film 1',
@@ -69,7 +87,20 @@ jest.mock('react-router-dom', () => ({
     .mockReturnValue([new URLSearchParams(), jest.fn()]),
 }));
 
+jest.mock('../ThemeSwitcher/ThemeContext.tsx');
+
 describe('CardList Component', () => {
+  beforeEach(() => {
+    (useTheme as jest.Mock).mockReturnValue({
+      theme: {
+        colors: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+      },
+    });
+  });
+
   test('renders correct number of cards', () => {
     render(<CardList searchResults={mockFilms} error={null} />);
 
@@ -77,7 +108,7 @@ describe('CardList Component', () => {
     expect(cards.length).toBe(mockFilms.length);
   });
 
-  test('shows loader, fetches details, and displays them on card click', async () => {
+  test('fetches details, and displays them on card click', async () => {
     await act(async () => {
       render(<CardList searchResults={mockFilms} error={null} />);
     });

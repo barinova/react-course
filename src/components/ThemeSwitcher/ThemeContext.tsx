@@ -22,7 +22,7 @@ export const useTheme = (): ThemeContext => {
 };
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [isDarkTheme, setTheme] = useState<boolean>(false);
+  const [isDarkTheme, setTheme] = useState<boolean>(true);
 
   const themeSwitchHandler = (): void => {
     setTheme((isDarkTheme: boolean) => !isDarkTheme);

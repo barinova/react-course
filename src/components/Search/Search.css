@@ -1,9 +1,9 @@
 .search-input {
-  border: 1px solid #6969cc;
-  border-radius: 4px;
+  border: 1px solid #512a7c;
+  border-radius: 8px;
   width: 300px;
   font-size: 16px;
-  margin: 30px 14px 0 0;
+  margin: 40px 14px 0 0;
   padding: 10px 16px;
 }
 

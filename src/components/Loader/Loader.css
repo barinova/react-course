@@ -1,6 +1,6 @@
 .loader {
   border: 16px solid #f3f3f3;
-  border-top: 16px solid #6969cc;
+  border-top: 16px solid #512a7c;
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -13,7 +13,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #6969ccdd;
+  background-color: #512a7c;
   display: flex;
   justify-content: center;
   align-items: center;

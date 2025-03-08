@@ -20,6 +20,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <Button
         text={'Previous'}
         disabled={currentPage === 1}
+        small={true}
         onButtonClick={handlePreviousPage}
       ></Button>
       <span>
@@ -28,6 +29,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <Button
         text={'Next'}
         disabled={currentPage === totalPages}
+        small={true}
         onButtonClick={handleNextPage}
       ></Button>
     </div>

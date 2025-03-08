@@ -4,7 +4,7 @@
 }
 
 .app.dark {
-  background-color: #4c4c4c;
+  background-color: #1d1e1f;
 
   h1,
   h2,
@@ -16,7 +16,7 @@
   }
 }
 
-app.light {
+.app.light {
   background-color: white;
 
   h1,
@@ -32,8 +32,16 @@ app.light {
 .app-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin-left: auto;
   gap: 20px;
+
+  svg {
+    margin-left: auto;
+  }
+}
+
+.app-header-theme-switch {
+  margin-left: auto;
 }
 
 .trigger-button {

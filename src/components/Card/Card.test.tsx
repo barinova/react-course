@@ -5,6 +5,9 @@ import { Film } from '../../helpers/film.model.ts';
 import { configureStore } from '@reduxjs/toolkit';
 import selectedItemsReducer from '../../store/selectedItemsSlice.tsx';
 import { Provider } from 'react-redux';
+import { useTheme } from '../ThemeSwitcher/ThemeContext.tsx';
+
+jest.mock('../ThemeSwitcher/ThemeContext.tsx');
 
 describe('Card Component', () => {
   const mockFilm: Film = {
@@ -30,6 +33,17 @@ describe('Card Component', () => {
 
     return render(<Provider store={store}>{ui}</Provider>);
   };
+
+  beforeEach(() => {
+    (useTheme as jest.Mock).mockReturnValue({
+      theme: {
+        colors: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+      },
+    });
+  });
 
   test('renders the card with correct film details', () => {
     renderWithProvider(<Card film={mockFilm} onClick={() => {}} />);

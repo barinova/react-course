@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { clearItems } from '../../store/selectedItemsSlice.tsx';
@@ -9,7 +9,10 @@ import { useTheme } from '../ThemeSwitcher/ThemeContext.tsx';
 
 const Flyout: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [link, setLink] = useState('');
+  const [fileName, setFileName] = useState('');
   const { isDarkTheme } = useTheme();
+  const downloadRef = useRef<HTMLAnchorElement>(null);
 
   const selectedItems: Film[] = useSelector(
     (state: RootState) => state.selectedItemsReducer.selectedItems
@@ -36,16 +39,9 @@ const Flyout: React.FC = () => {
         .join('\n')
     );
     const blob: Blob = new Blob([csvContent], { type: 'text/csv' });
-    const url: string = URL.createObjectURL(blob);
-    const a: HTMLAnchorElement = document.createElement('a');
-    a.href = url;
-    a.download = `${selectedItems.length}_episodes.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const handleClose = () => {
-    setIsVisible(false);
+    setLink(URL.createObjectURL(blob));
+    setFileName(`${selectedItems.length}_episodes.csv`);
+    setTimeout(() => downloadRef.current?.click());
   };
 
   return (
@@ -56,19 +52,34 @@ const Flyout: React.FC = () => {
           className={`flyout-backdrop ${isDarkTheme ? 'flyout-dark' : 'flyout-light'}`}
         >
           <div className="flyout">
-            <div className="flyout-title">
-              <h3>Selection notification</h3>
-              <button className="flyout-close" onClick={handleClose}>
-                X
-              </button>
+            <div>
+              <div className="flyout-title">
+                <h3>Selection notification</h3>
+              </div>
+              <span>
+                {selectedItems.length} item
+                {selectedItems.length === 1 ? '' : 's'} selected
+              </span>
             </div>
-            <span>{selectedItems.length} items selected</span>
             <div className={'flyout-buttons'}>
               <Button
                 onButtonClick={handleUnselectAll}
                 text={'Unselect All'}
+                small={true}
               ></Button>
-              <Button onButtonClick={handleDownload} text={'Download'}></Button>
+              <Button
+                onButtonClick={handleDownload}
+                text={'Download'}
+                small={true}
+              ></Button>
+              <a
+                className="d-none"
+                href={link}
+                download={fileName}
+                ref={downloadRef}
+                aria-hidden="true"
+                role="link"
+              ></a>
             </div>
           </div>
         </section>

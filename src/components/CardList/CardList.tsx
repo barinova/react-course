@@ -4,9 +4,7 @@ import Pagination from '../Pagination/Pagination.tsx';
 import './CardList.css';
 import { useSearchParams } from 'react-router-dom';
 import Details from '../Details/Details.tsx';
-import Button from '../Button/Button.tsx';
 import Card from '../Card/Card.tsx';
-import Flyout from '../Flyout/Flyout.tsx';
 
 interface ResultProps {
   searchResults: Film[];
@@ -68,11 +66,20 @@ const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
     setCurrentDisplayedResults(searchResults.slice(startIndex, endIndex));
   };
 
+  const getLastUrlSegment = (url: string): string => {
+    try {
+      const pathSegments = new URL(url).pathname.split('/').filter(Boolean);
+      return pathSegments[pathSegments.length - 1];
+    } catch (error) {
+      console.error('Invalid URL:', error);
+      return '';
+    }
+  };
+
   return (
     <>
       <div className={'results-container'}>
         <section className="results">
-          <h3 className="results-header">Results</h3>
           {searchResults.length > 0 ? (
             <div className="card-list">
               {currentDisplayedResults.map((result: Film, index: number) => (
@@ -93,19 +100,17 @@ const CardList: React.FC<ResultProps> = ({ searchResults }: ResultProps) => {
             onPageChange={handlePageChange}
           />
         </section>
-        <section>
-          {selectedItemUrl && (
+        {selectedItemUrl && (
+          <section>
             <div className={'details-container'}>
-              <Details itemUrl={selectedItemUrl} />
-              <div className="details-close">
-                <Button onButtonClick={closeDetails} text="Close Details" />
-              </div>
+              <Details
+                itemId={getLastUrlSegment(selectedItemUrl)}
+                onCloseDetails={closeDetails}
+              />
             </div>
-          )}
-        </section>
+          </section>
+        )}
       </div>
-
-      <Flyout />
     </>
   );
 };

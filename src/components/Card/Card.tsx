@@ -4,6 +4,7 @@ import './Card.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/store.ts';
 import { selectItem } from '../../store/selectedItemsSlice.tsx';
+import { useTheme } from '../ThemeSwitcher/ThemeContext.tsx';
 
 interface CardProps {
   film: Film;
@@ -15,6 +16,7 @@ const Card: React.FC<CardProps> = ({ film, onClick }) => {
   const isSelected = useSelector((state: RootState) =>
     state.selectedItemsReducer.selectedItems.includes(film)
   );
+  const { isDarkTheme } = useTheme();
 
   const handleCheckboxChange = (): void => {
     dispatch(selectItem(film));
@@ -26,16 +28,20 @@ const Card: React.FC<CardProps> = ({ film, onClick }) => {
 
   return (
     <section className="card" onClick={onClick}>
-      <div className="card-checkbox">
-        <input
-          type="checkbox"
-          checked={isSelected}
-          onChange={handleCheckboxChange}
-          onClick={checkboxClick}
-        />
-      </div>
-      <div>
-        <h3>{film.title}</h3>
+      <div className="card-content">
+        <div
+          className={`card-title card-title-${isDarkTheme ? 'dark' : 'light'}`}
+        >
+          <h3>{film.title}</h3>
+          <div className="card-checkbox">
+            <input
+              type="checkbox"
+              checked={isSelected}
+              onChange={handleCheckboxChange}
+              onClick={checkboxClick}
+            />
+          </div>
+        </div>
         <div className="card-details">
           <p>Director: {film.director}</p>
           <p>Producer: {film.producer}</p>

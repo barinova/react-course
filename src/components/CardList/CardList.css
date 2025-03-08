@@ -41,17 +41,17 @@
 .results-container {
   display: flex;
   gap: 20px;
-
-  section {
-    flex-basis: 50%;
-  }
-}
-
-.details-close {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .error {
   color: darkred;
+}
+
+.card-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  padding-block-start: 40px;
 }

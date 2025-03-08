@@ -1,10 +1,27 @@
 .details {
-  padding-top: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-left: 2px solid #512a7c;
+  padding: 10px 30px;
+}
+
+.details-dark {
+  background-color: #1d1e1f;
 }
 
 .details-description {
-  border: 1px solid #6969cc;
-  border-radius: 4px;
-  padding: 10px;
-  margin-block-end: 10px;
+  margin-block-start: 30px;
+}
+
+.details-close {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 20px;
 }
