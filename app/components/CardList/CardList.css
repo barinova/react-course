@@ -1,0 +1,58 @@
+.results {
+  table {
+    width: 100%;
+  }
+
+  th {
+    text-align: start;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid darkgray;
+    border-spacing: 0;
+  }
+
+  th,
+  td {
+    padding: 14px;
+  }
+}
+
+.results-header {
+  display: flex;
+  justify-content: center;
+  padding-block-start: 20px;
+}
+
+.results-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.results-empty {
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+  padding-block: 20px;
+}
+
+.results-container {
+  display: flex;
+  gap: 20px;
+}
+
+.error {
+  color: darkred;
+}
+
+.card-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  padding-block-start: 40px;
+}
