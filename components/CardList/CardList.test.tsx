@@ -185,4 +185,18 @@ describe('CardList Component', () => {
       'Page 2 of 2'
     );
   });
+
+  test('does nothing if searchResults is null', () => {
+    const { container } = render(
+      <CardList searchResults={null} error={null} />
+    );
+
+    expect(container.querySelector('.card-list')).toBeNull();
+    expect(container.querySelector('.details-container')).toBeNull();
+  });
+
+  test('displays empty search result message when searchResults is empty array', () => {
+    render(<CardList searchResults={[]} error={null} />);
+    expect(screen.getByText('Empty search result')).toBeInTheDocument();
+  });
 });

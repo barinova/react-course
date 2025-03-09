@@ -86,7 +86,6 @@ const CardList: React.FC<ResultProps> = ({ searchResults }) => {
     const startIndex = (currentPage - 1) * displayedResultsPerPage;
     const endIndex = startIndex + displayedResultsPerPage;
     setCurrentDisplayedResults(searchResults.slice(startIndex, endIndex));
-    console.log('Current displayed results:', currentDisplayedResults);
   };
 
   const getLastUrlSegment = (url: string): string => {

@@ -63,4 +63,15 @@ describe('Card Component', () => {
     fireEvent.click(screen.getByText('A New Hope'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
+
+
+  test('stops propagation when checkbox is clicked', () => {
+    const handleClick = jest.fn();
+    renderWithProvider(<Card film={mockFilm} onClick={handleClick} />);
+
+    const checkbox = screen.getByRole('checkbox');
+    fireEvent.click(checkbox);
+
+    expect(handleClick).not.toHaveBeenCalled();
+  });
 });

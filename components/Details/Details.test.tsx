@@ -74,4 +74,23 @@ describe('Details Component', () => {
     expect(screen.getByText('Mock Producer')).toBeInTheDocument();
     expect(screen.getByText('2000-01-01')).toBeInTheDocument();
   });
+
+  test('handles error state', async () => {
+    const consoleErrorSpy = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
+    (useGetFilmByIdQuery as jest.Mock).mockReturnValueOnce({
+      isFetching: false,
+      isError: true,
+      data: null,
+    });
+
+    await act(async () => {
+      renderWithProvider(<Details itemId="1" onCloseDetails={() => {}} />);
+    });
+
+    expect(consoleErrorSpy).toHaveBeenCalledWith('Error fetching film details');
+    expect(screen.queryByText('Mock Film')).toBeNull();
+    consoleErrorSpy.mockRestore();
+  });
 });
