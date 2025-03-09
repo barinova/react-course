@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  border: 2px solid #512a7c;
+  border-radius: 11px;
+  margin-block: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  flex-basis: 30%;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #512a7c;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 10px 20px;
+  letter-spacing: 0.9px;
+}
+
+.card-title-light {
+  background-color: color-mix(in srgb, #512a7c 85%, white 15%);
+}
+
+.card-details {
+  padding: 10px 20px;
+}
+
+.card-checkbox {
+  display: flex;
+  padding-inline-end: 20px;
+
+  input[type='checkbox'] {
+    width: 15px;
+    height: 15px;
+  }
+}

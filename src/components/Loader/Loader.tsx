@@ -1,0 +1,11 @@
+import './Loader.css';
+
+const Loader = () => {
+  return (
+    <div className={'loader-overlay'} data-testid="loader">
+      <div className={'loader'}></div>
+    </div>
+  );
+};
+
+export default Loader;
