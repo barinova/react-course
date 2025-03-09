@@ -23,7 +23,7 @@ const Pagination: React.FC<PaginationProps> = ({
         small={true}
         onButtonClick={handlePreviousPage}
       ></Button>
-      <span>
+      <span data-testid="pagination-text">
         Page {currentPage} of {totalPages}
       </span>
       <Button

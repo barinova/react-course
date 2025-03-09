@@ -1,7 +1,7 @@
 import './Search.css';
 import { useEffect, useState } from 'react';
 import useLocalStorage from '../../helpers/local-storage/local-storage-hook';
-import { useGetFilmsQuery } from '../../store/api/film.api';
+import { useGetFilmsQuery } from '@store/api/film.api';
 import Loader from '@components/Loader/Loader';
 import { Film } from '../../helpers/film.model';
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Film } from '../../helpers/film.model.ts';
 import './Details.css';
 import Loader from '../Loader/Loader.tsx';
-import { useGetFilmByIdQuery } from '../../store/api/film.api.ts';
+import { useGetFilmByIdQuery } from '@store/api/film.api';
 import { useTheme } from '../ThemeSwitcher/ThemeContext.tsx';
 import Button from '../Button/Button.tsx';
 

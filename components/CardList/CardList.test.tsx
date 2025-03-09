@@ -1,9 +1,10 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Film } from '../../helpers/film.model';
 import { act, MouseEventHandler } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import mockRouter from 'next-router-mock';
 import { useTheme } from '@components/ThemeSwitcher/ThemeContext';
 import CardList from '@components/CardList/CardList';
+import { useSearchParams } from 'next/navigation';
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
@@ -37,11 +38,6 @@ jest.mock('../Card/Card.tsx', () => {
   return MockCard;
 });
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useSearchParams: jest.fn(),
-}));
-
 jest.mock('../../store/api/film.api.ts', () => ({
   useGetFilmByIdQuery: jest.fn().mockReturnValue({
     isFetching: false,
@@ -58,6 +54,20 @@ jest.mock('../../store/api/film.api.ts', () => ({
     reducer: (state = {}) => state,
   },
 }));
+
+jest.mock('next/router', () => ({
+  useRouter: () => mockRouter,
+}));
+
+let searchParams = new URLSearchParams('details=1&page=2');
+
+jest.mock('next/navigation', () => ({
+  useSearchParams: jest.fn(() => searchParams),
+}));
+
+const updateSearchParams = (newParams: string) => {
+  searchParams = new URLSearchParams(newParams);
+};
 
 const mockFilms: Film[] = [
   {
@@ -79,13 +89,6 @@ const mockFilms: Film[] = [
     episode_id: 2,
   },
 ];
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useSearchParams: jest
-    .fn()
-    .mockReturnValue([new URLSearchParams(), jest.fn()]),
-}));
 
 jest.mock('../ThemeSwitcher/ThemeContext.tsx');
 
@@ -164,36 +167,22 @@ describe('CardList Component', () => {
     expect(document.querySelector('.details-container')).toBeNull();
   });
 
-  test('clears details param and keeps page param when search results update', async () => {
-    const setSearchParams = jest.fn();
-    (useSearchParams as jest.Mock).mockReturnValue([
-      new URLSearchParams('details=1&page=2'),
-      setSearchParams,
-    ]);
+  test('changes pages when url page param updates', async () => {
+    render(
+      <CardList searchResults={new Array(8).fill(mockFilms[0])} error={null} />
+    );
+
+    expect(useSearchParams().get('details')).toBe('1');
 
     await act(async () => {
-      const { rerender } = render(
-        <CardList searchResults={mockFilms} error={null} />
-      );
-      const filmsMock: Film[] = Array(9).fill(mockFilms[0]);
-      rerender(<CardList searchResults={filmsMock} error={null} />);
+      updateSearchParams('page=2');
     });
 
-    const expectedParams = new URLSearchParams('page=2');
-    expect(setSearchParams).toHaveBeenCalledWith(expectedParams);
-  });
+    expect(useSearchParams().get('details')).toBeNull();
+    expect(useSearchParams().get('page')).toBe('2');
 
-  test('handles invalid details param correctly', async () => {
-    const setSearchParams = jest.fn();
-    (useSearchParams as jest.Mock).mockReturnValue([
-      new URLSearchParams('details=10'),
-      setSearchParams,
-    ]);
-
-    await act(async () => {
-      render(<CardList searchResults={mockFilms} error={null} />);
-    });
-
-    expect(document.querySelector('.details-container')).toBeNull();
+    expect(screen.getByTestId('pagination-text')?.textContent).toBe(
+      'Page 2 of 2'
+    );
   });
 });

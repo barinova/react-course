@@ -17,7 +17,6 @@ const CardList: React.FC<ResultProps> = ({ searchResults }) => {
   const searchParams = useSearchParams();
   const displayedResultsPerPage = 5;
 
-  // State
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [currentDisplayedResults, setCurrentDisplayedResults] = useState<
@@ -87,6 +86,7 @@ const CardList: React.FC<ResultProps> = ({ searchResults }) => {
     const startIndex = (currentPage - 1) * displayedResultsPerPage;
     const endIndex = startIndex + displayedResultsPerPage;
     setCurrentDisplayedResults(searchResults.slice(startIndex, endIndex));
+    console.log('Current displayed results:', currentDisplayedResults);
   };
 
   const getLastUrlSegment = (url: string): string => {
@@ -148,42 +148,3 @@ const CardList: React.FC<ResultProps> = ({ searchResults }) => {
 };
 
 export default CardList;
-
-//   return (
-//     <>
-//       <div className={'results-container'}>
-//         <section className="results">
-//           {searchResults.length > 0 ? (
-//             <div className="card-list">
-//               {currentDisplayedResults.map((result: Film, index: number) => (
-//                 <Card
-//                   key={index}
-//                   film={result}
-//                   onClick={() => handleItemClick(result, index)}
-//                 />
-//               ))}
-//             </div>
-//           ) : (
-//             <span className="results-empty">Empty search result</span>
-//           )}
-//
-//           <Pagination
-//             currentPage={currentPage}
-//             totalPages={totalPages || 1}
-//             onPageChange={handlePageChange}
-//           />
-//         </section>
-//         {selectedItemUrl && (
-//           <section>
-//             <div className={'details-container'}>
-//               <Details
-//                 itemId={getLastUrlSegment(selectedItemUrl)}
-//                 onCloseDetails={closeDetails}
-//               />
-//             </div>
-//           </section>
-//         )}
-//       </div>
-//     </>
-//   );
-// };

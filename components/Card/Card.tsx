@@ -2,8 +2,8 @@ import React from 'react';
 import { Film } from '../../helpers/film.model.ts';
 import './Card.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../store/store.ts';
-import { selectItem } from '../../store/selectedItemsSlice.tsx';
+import { AppDispatch, RootState } from '@store/store';
+import { selectItem } from '@store/selectedItemsSlice';
 import { useTheme } from '../ThemeSwitcher/ThemeContext.tsx';
 
 interface CardProps {

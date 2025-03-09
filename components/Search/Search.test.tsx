@@ -5,7 +5,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import selectedItemsReducer from '@store/selectedItemsSlice';
 import { useGetFilmsQuery } from '@store/api/film.api';
 import { filmsApi } from '@store/api/film.api';
-import Search from './Search.jsx';
+import Search from './Search';
 
 jest.mock('../../store/api/film.api.ts', () => ({
   useGetFilmsQuery: jest.fn(),
@@ -82,7 +82,7 @@ describe('Search Component', () => {
 
     renderWithProvider(<Search {...defaultProps} />);
     expect(defaultProps.searchResultsReceived).toHaveBeenCalledWith(
-      [],
+      null,
       expect.any(Error)
     );
   });
