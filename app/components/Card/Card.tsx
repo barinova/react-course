@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Film } from '../../helpers/film.model.ts';
 import './Card.css';

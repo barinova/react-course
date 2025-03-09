@@ -1,8 +1,5 @@
 import { act, renderHook } from '@testing-library/react';
-import {
-  ThemeProvider,
-  useTheme,
-} from '@components/ThemeSwitcher/ThemeContext';
+import { ThemeProvider, useTheme } from './ThemeContext';
 
 describe('Theme Context', () => {
   test('should use dark default theme', () => {

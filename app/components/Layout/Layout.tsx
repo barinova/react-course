@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import { Film } from '../helpers/film.model';
-import Flyout from '@components/Flyout/Flyout';
-import Button from '@components/Button/Button';
-import { useTheme } from '@components/ThemeSwitcher/ThemeContext';
-import Search from '@components/Search/Search';
-import CardList from '@components/CardList/CardList';
-import { GetServerSideProps } from 'next';
+'use client';
 
-export default function Home() {
+import React, { useState } from 'react';
+import { Film } from '../../helpers/film.model';
+import Flyout from '../Flyout/Flyout';
+import Button from '../Button/Button';
+import { useTheme } from '../ThemeSwitcher/ThemeContext';
+import Search from '../Search/Search';
+import CardList from '../CardList/CardList';
+
+export default function Layout() {
   const [searchResults, setSearchResults] = useState<Film[] | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const { isDarkTheme, themeSwitchHandler } = useTheme();
@@ -56,14 +57,3 @@ export default function Home() {
     </>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await fetch('https://swapi.dev/api/films/');
-  const data = await response.json();
-
-  return {
-    props: {
-      films: data.results,
-    },
-  };
-};

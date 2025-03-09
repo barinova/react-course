@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { act } from 'react';
 import { configureStore } from '@reduxjs/toolkit';
-import selectedItemsReducer from '@store/selectedItemsSlice';
+import selectedItemsReducer from '../../store/selectedItemsSlice';
 import { Provider } from 'react-redux';
 import '@testing-library/jest-dom';
 import { filmsApi, useGetFilmByIdQuery } from '@store/api/film.api';
-import { useTheme } from '@components/ThemeSwitcher/ThemeContext';
-import Details from '@components/Details/Details';
+import { useTheme } from '../ThemeSwitcher/ThemeContext';
+import Details from './Details';
 
 jest.mock('../../store/api/film.api.ts', () => ({
   useGetFilmByIdQuery: jest.fn().mockReturnValue({
@@ -73,5 +73,24 @@ describe('Details Component', () => {
     expect(screen.getByText('Mock Director')).toBeInTheDocument();
     expect(screen.getByText('Mock Producer')).toBeInTheDocument();
     expect(screen.getByText('2000-01-01')).toBeInTheDocument();
+  });
+
+  test('handles error state', async () => {
+    const consoleErrorSpy = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
+    (useGetFilmByIdQuery as jest.Mock).mockReturnValueOnce({
+      isFetching: false,
+      isError: true,
+      data: null,
+    });
+
+    await act(async () => {
+      renderWithProvider(<Details itemId="1" onCloseDetails={() => {}} />);
+    });
+
+    expect(consoleErrorSpy).toHaveBeenCalledWith('Error fetching film details');
+    expect(screen.queryByText('Mock Film')).toBeNull();
+    consoleErrorSpy.mockRestore();
   });
 });

@@ -5,7 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8a3b7b7-7982-445e-bad1-11f21eb06bb3" name="Changes" comment="remove unused folder">
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Button/Button.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Button/Button.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Button/Button.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Button/Button.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Button/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Button/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Card/Card.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Card/Card.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Card/Card.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Card/Card.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Card/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CardList/CardList.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/CardList/CardList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CardList/CardList.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/CardList/CardList.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CardList/CardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/CardList/CardList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Details/Details.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Details/Details.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Details/Details.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Details/Details.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Details/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Details/Details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ErrorBoundary/ErrorBoundary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ErrorBoundary/ErrorBoundary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Flyout/Flyout.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Flyout/Flyout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Flyout/Flyout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Flyout/Flyout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Loader/Loader.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Loader/Loader.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Loader/Loader.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Loader/Loader.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Loader/Loader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Loader/Loader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pagination/Pagination.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pagination/Pagination.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pagination/Pagination.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pagination/Pagination.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pagination/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Pagination/Pagination.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Search/Search.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Search/Search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Search/Search.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Search/Search.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Search/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Search/Search.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ThemeSwitcher/ThemeContext.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ThemeSwitcher/ThemeContext.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ThemeSwitcher/ThemeContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ThemeSwitcher/ThemeContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/film.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/film.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/local-storage/local-storage-hook.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/local-storage/local-storage-hook.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/local-storage/local-storage-hook.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/local-storage/local-storage-hook.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/NotFound.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Layout/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/api/film.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/api/film.api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/selectedItemsSlice.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/selectedItemsSlice.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/selectedItemsSlice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/selectedItemsSlice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/styles/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,12 +69,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "barinova"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;barinova&quot;
   }
-}]]></component>
+}</component>
   <component name="GitRewordedCommitMessages">
     <option name="commitMessagesMapping">
       <RewordedCommitMessageMapping>
@@ -42,12 +85,12 @@
     <option name="currentCommit" value="1" />
     <option name="onto" value="94a76d65a72cd5e55a2c9052152372d675743b6a" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/barinova/react-course.git",
-    "accountId": "7f2cb3b7-fe5b-46dc-8497-77d16001a178"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/barinova/react-course.git&quot;,
+    &quot;accountId&quot;: &quot;7f2cb3b7-fe5b-46dc-8497-77d16001a178&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -64,7 +107,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "nextjs-ssr-pages-api",
+    "git-widget-placeholder": "nextjs-ssr-app-router-api",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/anastasiia.barinova/repo/react-course",
     "node.js.detected.package.eslint": "true",
@@ -85,11 +128,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/pages" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/components" />
-      <recent name="$PROJECT_DIR$/old-app" />
+      <recent name="$PROJECT_DIR$/app/components/Layout" />
+      <recent name="$PROJECT_DIR$/app/old" />
+      <recent name="$PROJECT_DIR$/app/components" />
+      <recent name="$PROJECT_DIR$/app/api" />
+      <recent name="$PROJECT_DIR$/app" />
     </key>
   </component>
   <component name="SharedIndexes">

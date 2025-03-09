@@ -1,11 +1,13 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@store/store';
 import { clearItems } from '@store/selectedItemsSlice';
 import './Flyout.css';
-import { useTheme } from '@components/ThemeSwitcher/ThemeContext';
+import { useTheme } from '../ThemeSwitcher/ThemeContext';
 import { Film } from '../../helpers/film.model';
-import Button from '@components/Button/Button';
+import Button from '../Button/Button';
 
 const Flyout: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);

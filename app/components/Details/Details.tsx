@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { Film } from '../../helpers/film.model.ts';
 import './Details.css';

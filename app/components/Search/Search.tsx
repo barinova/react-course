@@ -1,8 +1,10 @@
+'use client';
+
 import './Search.css';
 import { useEffect, useState } from 'react';
 import useLocalStorage from '../../helpers/local-storage/local-storage-hook';
 import { useGetFilmsQuery } from '@store/api/film.api';
-import Loader from '@components/Loader/Loader';
+import Loader from '../Loader/Loader';
 import { Film } from '../../helpers/film.model';
 
 interface SearchProps {

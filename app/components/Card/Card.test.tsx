@@ -2,10 +2,10 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Card from './Card';
 import { configureStore } from '@reduxjs/toolkit';
-import selectedItemsReducer from '@store/selectedItemsSlice';
+import selectedItemsReducer from '../../store/selectedItemsSlice';
 import { Provider } from 'react-redux';
 import { Film } from '../../helpers/film.model';
-import { useTheme } from '@components/ThemeSwitcher/ThemeContext';
+import { useTheme } from '../ThemeSwitcher/ThemeContext';
 
 jest.mock('../ThemeSwitcher/ThemeContext.tsx');
 
@@ -62,5 +62,15 @@ describe('Card Component', () => {
 
     fireEvent.click(screen.getByText('A New Hope'));
     expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  test('stops propagation when checkbox is clicked', () => {
+    const handleClick = jest.fn();
+    renderWithProvider(<Card film={mockFilm} onClick={handleClick} />);
+
+    const checkbox = screen.getByRole('checkbox');
+    fireEvent.click(checkbox);
+
+    expect(handleClick).not.toHaveBeenCalled();
   });
 });

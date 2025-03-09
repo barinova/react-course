@@ -14,10 +14,10 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@components/*": ["components/*"],
+      "@components/*": ["app/components/*"],
       "@pages/*": ["pages/*"],
-      "@styles/*": ["styles/*"],
-      "@store/*": ["store/*"]
+      "@styles/*": ["app/styles/*"],
+      "@store/*": ["app/store/*"]
     },
     "plugins": [
       {

@@ -2,8 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { Film } from '../../helpers/film.model';
 import { act, MouseEventHandler } from 'react';
 import mockRouter from 'next-router-mock';
-import { useTheme } from '@components/ThemeSwitcher/ThemeContext';
-import CardList from '@components/CardList/CardList';
+import { useTheme } from '../ThemeSwitcher/ThemeContext';
+import CardList from './CardList';
 import { useSearchParams } from 'next/navigation';
 
 global.fetch = jest.fn(() =>
@@ -55,14 +55,11 @@ jest.mock('../../store/api/film.api.ts', () => ({
   },
 }));
 
-jest.mock('next/router', () => ({
-  useRouter: () => mockRouter,
-}));
-
 let searchParams = new URLSearchParams('details=1&page=2');
 
 jest.mock('next/navigation', () => ({
   useSearchParams: jest.fn(() => searchParams),
+  useRouter: () => mockRouter,
 }));
 
 const updateSearchParams = (newParams: string) => {
@@ -102,6 +99,10 @@ describe('CardList Component', () => {
         },
       },
     });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   test('renders correct number of cards', () => {
@@ -184,5 +185,43 @@ describe('CardList Component', () => {
     expect(screen.getByTestId('pagination-text')?.textContent).toBe(
       'Page 2 of 2'
     );
+  });
+
+  test('does nothing if searchResults is null', () => {
+    const { container } = render(
+      <CardList searchResults={null} error={null} />
+    );
+
+    expect(container.querySelector('.card-list')).toBeNull();
+    expect(container.querySelector('.details-container')).toBeNull();
+  });
+
+  test('displays empty search result message when searchResults is empty array', () => {
+    render(<CardList searchResults={[]} error={null} />);
+    expect(screen.getByText('Empty search result')).toBeInTheDocument();
+  });
+
+  test('sets initial page to 1 if page param is missing', () => {
+    (useSearchParams as jest.Mock).mockReturnValue(new URLSearchParams(''));
+    mockRouter.replace = jest.fn().mockReturnValue(Promise.resolve());
+
+    render(<CardList searchResults={[]} error={null} />);
+    expect(mockRouter.replace).toHaveBeenCalledWith('/?page=1');
+  });
+
+  test('handles page change', async () => {
+    (useSearchParams as jest.Mock).mockReturnValue(
+      new URLSearchParams('?page=1')
+    );
+    mockRouter.push = jest.fn().mockReturnValue(Promise.resolve());
+
+    render(
+      <CardList searchResults={new Array(8).fill(mockFilms[0])} error={null} />
+    );
+
+    const nextPageButton = screen.getByText('Next');
+    fireEvent.click(nextPageButton);
+
+    expect(mockRouter.push).toHaveBeenCalledWith('?page=1');
   });
 });

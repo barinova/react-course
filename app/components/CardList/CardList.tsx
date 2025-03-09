@@ -1,14 +1,15 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Film } from '../../helpers/film.model';
-import Details from '@components/Details/Details';
-import Pagination from '@components/Pagination/Pagination';
-import Card from '@components/Card/Card';
+import Details from '../Details/Details';
+import Pagination from '../Pagination/Pagination';
+import Card from '../Card/Card';
 import './CardList.css';
 
 interface ResultProps {
-  searchResults: Film[];
+  searchResults: Film[] | null;
   error: Error | null;
 }
 
@@ -25,13 +26,18 @@ const CardList: React.FC<ResultProps> = ({ searchResults }) => {
   const [selectedItemUrl, setSelectedItemUrl] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!searchParams.get('page')) {
+      router.replace(`/?page=1`);
+    }
+  }, [searchParams, router]);
+
+  useEffect(() => {
     if (!searchResults) {
       return;
     }
 
-    const params = new URLSearchParams(router.asPath.split('?')[1]);
-    const pageParam = Number(params.get('page')) || 1;
-    const detailsParam = params.get('details');
+    const pageParam = Number(searchParams.get('page'));
+    const detailsParam = searchParams.get('details');
 
     const totalPagesLength = Math.ceil(
       searchResults.length / displayedResultsPerPage
@@ -39,7 +45,7 @@ const CardList: React.FC<ResultProps> = ({ searchResults }) => {
     setTotalPages(totalPagesLength);
 
     if (pageParam > totalPagesLength) {
-      updateURLParam('page', '1');
+      router.replace(`/?page=1`);
       setCurrentPage(1);
     } else {
       updateURLParam('page', pageParam.toString());
@@ -86,7 +92,6 @@ const CardList: React.FC<ResultProps> = ({ searchResults }) => {
     const startIndex = (currentPage - 1) * displayedResultsPerPage;
     const endIndex = startIndex + displayedResultsPerPage;
     setCurrentDisplayedResults(searchResults.slice(startIndex, endIndex));
-    console.log('Current displayed results:', currentDisplayedResults);
   };
 
   const getLastUrlSegment = (url: string): string => {
