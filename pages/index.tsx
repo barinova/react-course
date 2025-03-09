@@ -5,6 +5,7 @@ import Button from '@components/Button/Button';
 import { useTheme } from '@components/ThemeSwitcher/ThemeContext';
 import Search from '@components/Search/Search';
 import CardList from '@components/CardList/CardList';
+import { GetServerSideProps } from 'next';
 
 export default function Home() {
   const [searchResults, setSearchResults] = useState<Film[] | null>(null);
@@ -55,3 +56,14 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await fetch('https://swapi.dev/api/films/');
+  const data = await response.json();
+
+  return {
+    props: {
+      films: data.results,
+    },
+  };
+};
