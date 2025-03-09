@@ -1,30 +1,30 @@
 {
-  "name": "rs-react-app",
+  "name": "react-course",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "format:fix": "prettier --write .",
     "prepare": "husky install",
-    "test": " npx jest --coverage"
+    "test": " npx jest --coverage",
+    "husky": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "next": "15.2.1",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.5",
     "util": "^0.12.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.8",
-    "@babel/preset-env": "^7.26.8",
-    "@babel/preset-react": "^7.26.3",
-    "@babel/preset-typescript": "^7.26.0",
+    "@types/node": "^20",
+    "eslint-config-next": "15.2.1",
+    "@eslint/eslintrc": "^3",
     "@eslint/js": "^9.19.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -32,8 +32,6 @@
     "@types/jest": "^29.5.14",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
-    "@vitejs/plugin-react": "^4.3.4",
-    "babel-jest": "^29.7.0",
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
@@ -50,7 +48,6 @@
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "~5.7.2",
-    "typescript-eslint": "^8.22.0",
-    "vite": "^6.1.0"
+    "typescript-eslint": "^8.22.0"
   }
 }
