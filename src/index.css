@@ -1,4 +1,53 @@
 :root {
   font-family: 'Roboto Light', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: ghostwhite;
+  background-color: #1d1e1f;
+  height: 100%;
+  color: #f2f2f2;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  padding: 20px;
+  height: 100%;
+}
+
+.page-title {
+  color: #f2f2f2;
+  font-size: 24px;
+  padding: 40px 20px 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #f2f2f2;
+}
+
+.form-label {
+  color: #f2f2f2;
+}
+
+.form-field {
+  display: flex;
+  gap: 10px;
+}
+
+.form-submit {
+  margin-top: 20px;
+  width: 150px;
+}
+
+.form-errors {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 0 10px;
+}
+
+.form-errors {
+  color: red;
 }

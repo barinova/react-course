@@ -1,50 +1,47 @@
 import './App.css';
-import Header from './components/Header.tsx';
-import Search from './components/Search/Search.tsx';
-import Result from './components/Results/Result.tsx';
 import { Component } from 'react';
-import { Film } from './helpers/film.model.ts';
-import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.tsx';
-import Button from './components/Button/Button.tsx';
+import {
+  NavLink,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from 'react-router-dom';
+import FormControlled from './components/FormControlled/FormControlled.tsx';
+import FormUncontrolled from './components/FormUncontrolled/FormUncontrolled.tsx';
+import Main from './components/Main/Main.tsx';
 
-interface AppState {
-  searchResults: Film[];
-  error: Error | string;
-}
-
-export default class App extends Component<object, AppState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchResults: [],
-      error: null,
-    };
-  }
-
-  searchResultsReceived = (results: Film[], error: string) => {
-    console.log(results);
-    this.setState({ searchResults: results, error });
-  };
-
-  triggerError = (): void => {
-    this.setState({ error: new Error('Triggered error') });
-  };
-
+export default class App extends Component<object> {
   render() {
     return (
-      <ErrorBoundary>
-        <Header />
-        <main>
-          <Search searchResultsReceived={this.searchResultsReceived} />
-          <Result
-            searchResults={this.state.searchResults}
-            error={this.state.error}
-          />
-        </main>
-        <div className={'trigger-button'}>
-          <Button onButtonClick={this.triggerError} text={'Trigger Error'} />
-        </div>
-      </ErrorBoundary>
+      <>
+        <Router>
+          <nav>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? 'active-link' : '')}
+            >
+              Main
+            </NavLink>
+            <NavLink
+              to="/form-uncontrolled"
+              className={({ isActive }) => (isActive ? 'active-link' : '')}
+            >
+              Uncontrolled Form
+            </NavLink>
+            <NavLink
+              to="/form-controlled"
+              className={({ isActive }) => (isActive ? 'active-link' : '')}
+            >
+              Controlled Form
+            </NavLink>
+          </nav>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/form-uncontrolled" element={<FormUncontrolled />} />
+            <Route path="/form-controlled" element={<FormControlled />} />
+          </Routes>
+        </Router>
+      </>
     );
   }
 }

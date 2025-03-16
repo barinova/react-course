@@ -1,0 +1,13 @@
+.form-image {
+  max-width: 300px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.form-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
