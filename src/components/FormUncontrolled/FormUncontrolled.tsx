@@ -1,5 +1,4 @@
 import { addFormData } from '../../store/formSlice';
-import './FormUncontrolled.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FC, useRef, useState } from 'react';
@@ -11,7 +10,7 @@ const FormUncontrolled: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [errors, setErrors] = useState<string[]>([]);
-  const allCountries: FormData = useSelector(
+  const allCountries: string[] = useSelector(
     (state: RootState) => state.form.countries
   );
 
@@ -70,7 +69,7 @@ const FormUncontrolled: FC = () => {
     }
 
     if (!allCountries.includes(formData.country)) {
-      errors.push('Country is not valid');
+      errors.push('Country must be one of the predefined options');
     }
 
     if (formData.picture) {
@@ -120,7 +119,7 @@ const FormUncontrolled: FC = () => {
 
   return (
     <>
-      <h2 className={'page-title'}>{'Uncontrolled form'}</h2>
+      <h2 className={'page-title'}>Uncontrolled form</h2>
       <form className={'form'} onSubmit={handleSubmit}>
         <div className={'form-field'}>
           <label className={'form-label'} htmlFor="name">
@@ -195,7 +194,6 @@ const FormUncontrolled: FC = () => {
           </ul>
         )}
         <button type="submit" className={'form-submit'}>
-          {' '}
           Submit
         </button>
       </form>
