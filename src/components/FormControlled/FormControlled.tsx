@@ -62,9 +62,10 @@ const FormControlled: React.FC = () => {
       .oneOf(allCountries, 'Country must be one of the predefined options'),
     picture: yup
       .mixed()
+      .required('Picture is required')
       .test(
         'fileSize',
-        'Picture size must be less than 1MB',
+        'Picture size must be less than 1MB and not empty',
         (value) => !value || (value && value[0]?.size <= 1048576)
       )
       .test(

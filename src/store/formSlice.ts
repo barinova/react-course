@@ -5,11 +5,13 @@ import { countries } from '../consts/countries.const.ts';
 interface FormState {
   userForm: FormData | null;
   countries: string[];
+  isNewData: boolean;
 }
 
 const initialState: FormState = {
   userForm: null,
   countries,
+  isNewData: false,
 };
 
 const formSlice = createSlice({
@@ -20,10 +22,17 @@ const formSlice = createSlice({
       return {
         ...state,
         userForm: action.payload,
+        isNewData: true,
+      };
+    },
+    clearNewDataFlag: (state) => {
+      return {
+        ...state,
+        isNewData: false,
       };
     },
   },
 });
 
-export const { addFormData } = formSlice.actions;
+export const { addFormData, clearNewDataFlag } = formSlice.actions;
 export default formSlice.reducer;

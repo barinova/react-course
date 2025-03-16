@@ -1,16 +1,32 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store.ts';
 import './Main.css';
+import { useEffect } from 'react';
+import { clearNewDataFlag } from '../../store/formSlice';
 
 const Main = () => {
+  const dispatch = useDispatch();
   const form: FormData = useSelector((state: RootState) => state.form.userForm);
+  const isNewData: boolean = useSelector(
+    (state: RootState) => state.form.isNewData
+  );
+
+  useEffect(() => {
+    if (isNewData) {
+      const timer = setTimeout(() => {
+        dispatch(clearNewDataFlag());
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isNewData]);
 
   return (
     <section>
       <h2 className={'page-title'}>{'Main'}</h2>
       {form ? (
-        <div className={'form-list'}>
-          <div className={'form-field'}>
+        <div className={`form-list ${isNewData ? 'highlight' : ''}`}>
+          <div className={`form-field`}>
             <label className={'form-label'}>
               <strong>Name</strong>
             </label>
