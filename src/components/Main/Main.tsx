@@ -64,10 +64,7 @@ const Main = () => {
             </label>
             {form.picture ? (
               <div className={'form-image'}>
-                <img
-                  src={URL.createObjectURL(form.picture)}
-                  alt="Uploaded picture"
-                />
+                <img src={form.picture} alt="Uploaded picture" />
               </div>
             ) : (
               <span>No picture uploaded</span>

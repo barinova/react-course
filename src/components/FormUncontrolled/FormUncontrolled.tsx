@@ -1,26 +1,31 @@
 import { addFormData } from '../../store/formSlice';
 import './FormUncontrolled.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FC, useRef, useState } from 'react';
-import { countries } from '../../consts/countries.const.ts';
+import { FormData } from '../../store/form.model.ts';
+import { readFileAsBase64 } from '../../helper/image-reader.ts';
+import { RootState } from '../../store/store.ts';
 
 const FormUncontrolled: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [errors, setErrors] = useState<string[]>([]);
+  const allCountries: FormData = useSelector(
+    (state: RootState) => state.form.countries
+  );
 
-  const name = useRef<HTMLInputElement>(null);
-  const age = useRef<HTMLInputElement>(null);
-  const email = useRef<HTMLInputElement>(null);
-  const password = useRef<HTMLInputElement>(null);
-  const confirmPassword = useRef<HTMLInputElement>(null);
+  const name = useRef<HTMLInputElement>(undefined);
+  const age = useRef<HTMLInputElement>(undefined);
+  const email = useRef<HTMLInputElement>(undefined);
+  const password = useRef<HTMLInputElement>(undefined);
+  const confirmPassword = useRef<HTMLInputElement>(undefined);
   const gender = useRef<HTMLInputElement>('Male');
-  const terms = useRef<HTMLInputElement>(null);
-  const picture = useRef<HTMLInputElement>(null);
-  const country = useRef<HTMLSelectElement>(null);
+  const terms = useRef<HTMLInputElement>(undefined);
+  const picture = useRef<HTMLInputElement>(undefined);
+  const country = useRef<HTMLSelectElement>(undefined);
 
-  const validateForm = (formData: FormData): string[] => {
+  const validateForm = (formData: FormData, fileType: string): string[] => {
     const errors: string[] = [];
 
     Object.keys(formData).forEach((key) => {
@@ -29,11 +34,15 @@ const FormUncontrolled: FC = () => {
       }
     });
 
-    if (isNaN(formData.age)) {
+    if (formData.name?.charAt(0) !== formData.name?.charAt(0).toUpperCase()) {
+      errors.push('Name must start with a capital letter');
+    }
+
+    if (formData.age && isNaN(formData.age)) {
       errors.push('Age must be a number');
     }
 
-    const age = Number(formData.age);
+    const age = formData.age && Number(formData.age);
 
     if (age < 0 || age > 100) {
       errors.push('Age must be between 0 and 100');
@@ -44,11 +53,15 @@ const FormUncontrolled: FC = () => {
       errors.push('Email is not valid');
     }
 
-    if (formData.password.length < 8) {
-      errors.push('Password must be at least 8 characters long');
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
+
+    if (!passwordRegex.test(formData.password)) {
+      errors.push(
+        'Password must be at least 8 characters long and include 1 number, 1 uppercase letter, 1 lowercase letter, and 1 special character'
+      );
     }
 
-    if (formData.password.includes(' ')) {
+    if (formData.password?.includes(' ')) {
       errors.push('Password must not contain whitespace');
     }
 
@@ -56,16 +69,34 @@ const FormUncontrolled: FC = () => {
       errors.push('Passwords do not match');
     }
 
-    if (!countries.includes(formData.country)) {
+    if (!allCountries.includes(formData.country)) {
       errors.push('Country is not valid');
+    }
+
+    if (formData.picture) {
+      const file = formData.picture;
+      if (file.size > 1024 * 1024) {
+        errors.push('Picture size must be less than 1MB');
+      }
+
+      if (fileType !== 'image/png' && fileType !== 'image/jpeg') {
+        errors.push('Picture must be a PNG or JPEG');
+      }
     }
 
     return errors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    //trim data
+
+    const pictureFile = picture.current?.files?.[0];
+    let pictureBase64 = '';
+
+    if (pictureFile) {
+      pictureBase64 = await readFileAsBase64(pictureFile);
+    }
+
     const formData: FormData = {
       name: name.current.value,
       age: age.current.value,
@@ -75,9 +106,9 @@ const FormUncontrolled: FC = () => {
       gender: gender.current.value,
       terms: terms.current.checked,
       country: country.current.value,
-      picture: picture.current.files[0],
+      picture: pictureBase64,
     };
-    const errors = validateForm(formData);
+    const errors = validateForm(formData, pictureFile.type);
 
     setErrors(errors);
 
@@ -92,44 +123,63 @@ const FormUncontrolled: FC = () => {
       <h2 className={'page-title'}>{'Uncontrolled form'}</h2>
       <form className={'form'} onSubmit={handleSubmit}>
         <div className={'form-field'}>
-          <label className={'form-label'}>Name</label>
-          <input type="text" ref={name} />
+          <label className={'form-label'} htmlFor="name">
+            Name
+          </label>
+          <input type="text" id="name" ref={name} />
         </div>
         <div className={'form-field'}>
-          <label className={'form-label'}>Age</label>
-          <input type="text" ref={age} />
+          <label className={'form-label'} htmlFor="age">
+            Age
+          </label>
+          <input type="text" id="age" ref={age} />
         </div>
         <div className={'form-field'}>
-          <label className={'form-label'}>Email</label>
-          <input type="text" ref={email} />
+          <label className={'form-label'} htmlFor="email">
+            Email
+          </label>
+          <input type="text" id="email" ref={email} />
         </div>
         <div className={'form-field'}>
-          <label className={'form-label'}>Password</label>
-          <input type="text" ref={password} />
+          <label className={'form-label'} htmlFor="password">
+            Password
+          </label>
+          <input type="password" id="password" ref={password} />
         </div>
         <div className={'form-field'}>
-          <label className={'form-label'}>Confirm Password</label>
-          <input type="text" ref={confirmPassword} />
+          <label className={'form-label'} htmlFor="confirmPassword">
+            Confirm Password
+          </label>
+          <input type="password" id="confirmPassword" ref={confirmPassword} />
         </div>
         <div className={'form-field'}>
-          <label className={'form-label'}>Gender</label>
-          <select ref={gender}>
+          <label className={'form-label'} htmlFor="gender">
+            Select Gender
+          </label>
+          <select id="gender" ref={gender}>
             <option>Male</option>
             <option>Female</option>
           </select>
         </div>
         <div className={'form-field'}>
-          <input type="checkbox" ref={terms} /> Accept Terms and Conditions
+          <input type="checkbox" id="terms" ref={terms} />
+          <label className={'form-label'} htmlFor="terms">
+            Accept Terms and Conditions
+          </label>
         </div>
         <div className={'form-field'}>
-          <label className={'form-label'}>Upload Picture</label>
-          <input type="file" ref={picture}></input>
+          <label className={'form-label'} htmlFor="picture">
+            Upload Picture
+          </label>
+          <input type="file" id="picture" ref={picture}></input>
         </div>
         <div className={'form-field'}>
-          <label className={'form-label'}>Select Country</label>
-          <input type="text" ref={country} list="countries" />
+          <label className={'form-label'} htmlFor="country">
+            Select Country
+          </label>
+          <input type="text" id="country" ref={country} list="countries" />
           <datalist id="countries">
-            {countries.map((country) => (
+            {allCountries.map((country) => (
               <option key={country} value={country} />
             ))}
           </datalist>
