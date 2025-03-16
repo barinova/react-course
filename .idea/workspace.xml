@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8a3b7b7-7982-445e-bad1-11f21eb06bb3" name="Changes" comment="add unit tests">
-      <change afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
+    <list default="true" id="e8a3b7b7-7982-445e-bad1-11f21eb06bb3" name="Changes" comment="add not found page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/NotFound.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Card/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CardList/CardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CardList/CardList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Details/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Details/Details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pagination/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pagination/Pagination.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/api/film.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/api/film.api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/selectedItemsSlice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/selectedItemsSlice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,22 +68,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "#4 on nextjs-ssr-pages-api",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/anastasiia.barinova/repo/react-course",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/anastasiia.barinova/repo/react-course/node_modules/prettier",
-    "ts.external.directory.path": "/Users/anastasiia.barinova/repo/react-course/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#4 on nextjs-ssr-pages-api&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/anastasiia.barinova/repo/react-course&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/anastasiia.barinova/repo/react-course/node_modules/prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/anastasiia.barinova/repo/react-course/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -96,8 +103,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
       </set>
     </attachedChunks>
   </component>
@@ -119,6 +126,8 @@
       <workItem from="1740597574828" duration="2111000" />
       <workItem from="1740932821523" duration="16281000" />
       <workItem from="1741435933202" duration="34440000" />
+      <workItem from="1741594821227" duration="133000" />
+      <workItem from="1742125609073" duration="969000" />
     </task>
     <task id="LOCAL-00001" summary="add jest">
       <option name="closed" value="true" />

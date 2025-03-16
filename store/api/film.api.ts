@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Film, FilmsResponse } from '@/helpers/film.model.ts';
+import { Film, FilmsResponse } from '../../helpers/film.model';
 
 export const filmsApi = createApi({
   reducerPath: 'filmsApi',

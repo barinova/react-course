@@ -1,5 +1,5 @@
 import './Pagination.css';
-import Button from '../Button/Button.tsx';
+import Button from '../Button/Button';
 
 interface PaginationProps {
   currentPage: number;

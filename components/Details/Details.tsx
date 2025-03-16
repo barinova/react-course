@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Film } from '../../helpers/film.model.ts';
+import { Film } from '../../helpers/film.model';
 import './Details.css';
-import Loader from '../Loader/Loader.tsx';
+import Loader from '../Loader/Loader';
 import { useGetFilmByIdQuery } from '@store/api/film.api';
-import { useTheme } from '../ThemeSwitcher/ThemeContext.tsx';
-import Button from '../Button/Button.tsx';
+import { useTheme } from '../ThemeSwitcher/ThemeContext';
+import Button from '../Button/Button';
 
 interface DetailsProps {
   itemId: string;

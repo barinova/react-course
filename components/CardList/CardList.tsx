@@ -8,11 +8,11 @@ import Card from '@components/Card/Card';
 import './CardList.css';
 
 interface ResultProps {
-  searchResults: Film[];
+  searchResults: Film[] | null;
   error: Error | null;
 }
 
-const CardList: React.FC<ResultProps> = ({ searchResults }) => {
+const CardList: React.FC<ResultProps> = ({ searchResults } : ResultProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const displayedResultsPerPage = 5;
@@ -111,7 +111,7 @@ const CardList: React.FC<ResultProps> = ({ searchResults }) => {
   return (
     <div className="results-container">
       <section className="results">
-        {searchResults?.length > 0 ? (
+        {searchResults && searchResults.length > 0 ? (
           <div className="card-list">
             {currentDisplayedResults.map((result: Film, index: number) => (
               <Card
