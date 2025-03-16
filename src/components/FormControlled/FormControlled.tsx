@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { readFileAsBase64 } from '../../helper/image-reader';
 import { addFormData } from '../../store/formSlice';
 import './FormControlled.css';
+import Button from '../Button/Button.tsx';
 
 interface FormData {
   name: string;
@@ -154,7 +155,12 @@ const FormControlled: React.FC = () => {
         </div>
 
         <div className={'form-field'}>
-          <input type="checkbox" id="terms" {...register('terms')} />
+          <input
+            className={'form-checkbox'}
+            type="checkbox"
+            id="terms"
+            {...register('terms')}
+          />
           <label className={'form-label'} htmlFor="terms">
             Accept Terms and Conditions
           </label>
@@ -187,11 +193,9 @@ const FormControlled: React.FC = () => {
           <span className="error">{errors.country?.message}</span>
         </div>
 
-        {isValid}
-
-        <button type="submit" className={'form-submit'} disabled={!isValid}>
-          Submit
-        </button>
+        <div>
+          <Button text={'Submit'} disabled={!isValid}></Button>
+        </div>
       </form>
     </>
   );

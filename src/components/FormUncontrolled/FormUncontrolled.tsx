@@ -5,6 +5,8 @@ import { FC, useRef, useState } from 'react';
 import { FormData } from '../../store/form.model.ts';
 import { readFileAsBase64 } from '../../helper/image-reader.ts';
 import { RootState } from '../../store/store.ts';
+import Button from '../Button/Button.tsx';
+import './FormUncontrolled.css';
 
 const FormUncontrolled: FC = () => {
   const dispatch = useDispatch();
@@ -24,7 +26,11 @@ const FormUncontrolled: FC = () => {
   const picture = useRef<HTMLInputElement>(undefined);
   const country = useRef<HTMLSelectElement>(undefined);
 
-  const validateForm = (formData: FormData, fileType: string): string[] => {
+  const validateForm = (
+    formData: FormData,
+    fileSize: number | undefined,
+    fileType: string | undefined
+  ): string[] => {
     const errors: string[] = [];
 
     Object.keys(formData).forEach((key) => {
@@ -43,18 +49,18 @@ const FormUncontrolled: FC = () => {
 
     const age = formData.age && Number(formData.age);
 
-    if (age < 0 || age > 100) {
+    if (!age || age < 0 || age > 100) {
       errors.push('Age must be between 0 and 100');
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
+    if (!formData.email || !emailRegex.test(formData.email)) {
       errors.push('Email is not valid');
     }
 
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}$/;
 
-    if (!passwordRegex.test(formData.password)) {
+    if (!formData.password || !passwordRegex.test(formData.password)) {
       errors.push(
         'Password must be at least 8 characters long and include 1 number, 1 uppercase letter, 1 lowercase letter, and 1 special character'
       );
@@ -68,13 +74,12 @@ const FormUncontrolled: FC = () => {
       errors.push('Passwords do not match');
     }
 
-    if (!allCountries.includes(formData.country)) {
+    if (!formData.country || !allCountries.includes(formData.country)) {
       errors.push('Country must be one of the predefined options');
     }
 
     if (formData.picture) {
-      const file = formData.picture;
-      if (file.size > 1024 * 1024) {
+      if (!fileSize || fileSize > 1024 * 1024) {
         errors.push('Picture size must be less than 1MB');
       }
 
@@ -107,7 +112,7 @@ const FormUncontrolled: FC = () => {
       country: country.current.value,
       picture: pictureBase64,
     };
-    const errors = validateForm(formData, pictureFile.type);
+    const errors = validateForm(formData, pictureFile?.size, pictureFile?.type);
 
     setErrors(errors);
 
@@ -161,7 +166,12 @@ const FormUncontrolled: FC = () => {
           </select>
         </div>
         <div className={'form-field'}>
-          <input type="checkbox" id="terms" ref={terms} />
+          <input
+            className={'form-checkbox'}
+            type="checkbox"
+            id="terms"
+            ref={terms}
+          />
           <label className={'form-label'} htmlFor="terms">
             Accept Terms and Conditions
           </label>
@@ -193,9 +203,9 @@ const FormUncontrolled: FC = () => {
             ))}
           </ul>
         )}
-        <button type="submit" className={'form-submit'}>
-          Submit
-        </button>
+        <div>
+          <Button text={'Submit'}></Button>
+        </div>
       </form>
     </>
   );

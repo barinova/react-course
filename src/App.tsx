@@ -15,7 +15,7 @@ export default class App extends Component<object> {
     return (
       <>
         <Router>
-          <nav>
+          <nav className={'tabs'}>
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? 'active-link' : '')}

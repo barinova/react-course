@@ -4,15 +4,24 @@
   height: 100%;
 }
 
-a {
-  float: left;
-  color: #9d50f3;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+.tabs {
+  display: flex;
+  gap: 5px;
 
-.active-link {
-  color: #f2f2f2;
+  a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  a:hover {
+    border-bottom: 1px solid #9d50f3;
+  }
+
+  .active-link {
+    border-bottom: 1px solid #9d50f3;
+  }
 }

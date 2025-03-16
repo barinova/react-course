@@ -6,7 +6,9 @@ import { clearNewDataFlag } from '../../store/formSlice';
 
 const Main = () => {
   const dispatch = useDispatch();
-  const form: FormData = useSelector((state: RootState) => state.form.userForm);
+  const form: FormData | null = useSelector(
+    (state: RootState) => state.form.userForm
+  );
   const isNewData: boolean = useSelector(
     (state: RootState) => state.form.isNewData
   );
