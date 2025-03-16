@@ -1,0 +1,18 @@
+.form-image {
+  max-width: 300px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.form-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+.highlight {
+  border: 2px solid #9d50f3;
+}

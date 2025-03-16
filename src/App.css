@@ -1,11 +1,27 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  height: 100%;
 }
 
-.trigger-button {
+.tabs {
   display: flex;
-  justify-content: flex-end;
-  padding-top: 20px;
+  gap: 5px;
+
+  a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  a:hover {
+    border-bottom: 1px solid #9d50f3;
+  }
+
+  .active-link {
+    border-bottom: 1px solid #9d50f3;
+  }
 }
