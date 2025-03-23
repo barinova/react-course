@@ -1,0 +1,7 @@
+.cell {
+  padding: 10px;
+}
+
+.visited {
+  background-color: #dbdbe6;
+}

@@ -3,7 +3,7 @@ import { Sorting } from './soring.enum.ts';
 
 export interface CountriesFilterProps {
   countries: Country[];
-  setSelectedRegion: string | null;
-  setSearch: string;
-  setSorting: Sorting;
+  setSelectedRegion: (region: string | null) => void;
+  setSearch: (search: string) => void;
+  setSorting: (sorting: Sorting) => void;
 }

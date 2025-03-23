@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# Performance
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Search
 
-Currently, two official plugins are available:
+### Before optimization
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Screenshot 2025-03-23 at 18.29.50.png](src/report/before/search/Screenshot%202025-03-23%20at%2018.29.50.png)
+![Screenshot 2025-03-23 at 18.30.20.png](src/report/before/search/Screenshot%202025-03-23%20at%2018.30.20.png)
+![Screenshot 2025-03-23 at 18.30.30.png](src/report/before/search/Screenshot%202025-03-23%20at%2018.30.30.png)
+![Screenshot 2025-03-23 at 18.30.35.png](src/report/before/search/Screenshot%202025-03-23%20at%2018.30.35.png)
+![Screenshot 2025-03-23 at 20.19.05.png](src/report/before/search/Screenshot%202025-03-23%20at%2020.19.05.png)
+![Screenshot 2025-03-23 at 20.19.11.png](src/report/before/search/Screenshot%202025-03-23%20at%2020.19.11.png)
+![Screenshot 2025-03-23 at 20.19.14.png](src/report/before/search/Screenshot%202025-03-23%20at%2020.19.14.png)
+![Screenshot 2025-03-23 at 20.19.16.png](src/report/before/search/Screenshot%202025-03-23%20at%2020.19.16.png)
+[profiling-data.23-03-2025.18-29-54.json](src/report/before/search/profiling-data.23-03-2025.18-29-54.json)
 
-## Expanding the ESLint configuration
+### After optimization
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Screenshot 2025-03-23 at 20.06.43.png](src/report/after/search/Screenshot%202025-03-23%20at%2020.06.43.png)
+![Screenshot 2025-03-23 at 20.07.14.png](src/report/after/search/Screenshot%202025-03-23%20at%2020.07.14.png)
+![Screenshot 2025-03-23 at 20.07.06.png](src/report/after/search/Screenshot%202025-03-23%20at%2020.07.06.png)
+![Screenshot 2025-03-23 at 20.07.09.png](src/report/after/search/Screenshot%202025-03-23%20at%2020.07.09.png)
+[profiling-data.23-03-2025.20-07-17.json](src/report/after/search/profiling-data.23-03-2025.20-07-17.json)
 
-- Configure the top-level `parserOptions` property like this:
+## Sorting
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+### Before optimization
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+![Screenshot 2025-03-23 at 18.31.45.png](src/report/before/sorting/Screenshot%202025-03-23%20at%2018.31.45.png)
+![Screenshot 2025-03-23 at 18.31.48.png](src/report/before/sorting/Screenshot%202025-03-23%20at%2018.31.48.png)
+![Screenshot 2025-03-23 at 18.31.53.png](src/report/before/sorting/Screenshot%202025-03-23%20at%2018.31.53.png)
+![Screenshot 2025-03-23 at 18.31.55.png](src/report/before/sorting/Screenshot%202025-03-23%20at%2018.31.55.png)
+[profiling-data.23-03-2025.18-31-59.json](src/report/before/sorting/profiling-data.23-03-2025.18-31-59.json)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+## After optimization
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+![Screenshot 2025-03-23 at 20.09.21.png](src/report/after/sorting/Screenshot%202025-03-23%20at%2020.09.21.png)
+![Screenshot 2025-03-23 at 20.09.23.png](src/report/after/sorting/Screenshot%202025-03-23%20at%2020.09.23.png)
+[profiling-data.23-03-2025.20-09-31.json](src/report/after/sorting/profiling-data.23-03-2025.20-09-31.json)

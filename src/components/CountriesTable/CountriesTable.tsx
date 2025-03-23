@@ -1,22 +1,18 @@
 import React, { useMemo } from 'react';
 import './CountriesTable.css';
 import { Country } from '../../models/countries.model.ts';
+import CountryRow from '../CountryRow/CountryRow.tsx';
 
 interface CountriesTableProps {
   countries: Country[];
 }
 
-const CountriesTable: React.FC<CountriesTableProps> = ({ countries }) => {
+const CountriesTable: React.FC<CountriesTableProps> = ({
+  countries,
+}: CountriesTableProps) => {
   const memoizedRows = useMemo(() => {
     return countries.map((country: Country) => (
-      <tr key={country.cca3}>
-        <td className={'cell'}>{country.name.common}</td>
-        <td className={'cell'}>{country.population}</td>
-        <td className={'cell'}>{country.region}</td>
-        <td className={'cell'}>
-          <img src={country.flags.png} alt={country.name.common} width="50" />
-        </td>
-      </tr>
+      <CountryRow key={country.cca3} country={country} />
     ));
   }, [countries]);
 
@@ -30,6 +26,7 @@ const CountriesTable: React.FC<CountriesTableProps> = ({ countries }) => {
               <th className={'cell'}>Population</th>
               <th className={'cell'}>Region</th>
               <th className={'cell'}>Flag</th>
+              <th className={'cell'}>Visited</th>
             </tr>
           </thead>
           <tbody>{memoizedRows}</tbody>

@@ -1,20 +1,17 @@
 import React, { useCallback, useMemo } from 'react';
 import './CountriesFilter.css';
-import { Country } from '../../models/countries.model.ts';
+import { Country } from '../../models/countries.model';
+import { CountriesFilterProps } from '../../models/countries-info.model';
 import { Sorting } from '../../models/soring.enum.ts';
-import { CountriesFilterProps } from '../../models/countries-info.model.ts';
 
 const CountriesFilter: React.FC<CountriesFilterProps> = ({
   countries,
   setSelectedRegion,
   setSearch,
   setSorting,
-}) => {
-  const regionNames = useMemo(() => {
-    const regions: string[] = countries.map(
-      (country: Country) => country.region
-    );
-    return [...new Set(regions)];
+}: CountriesFilterProps) => {
+  const regionNames: string[] = useMemo(() => {
+    return [...new Set(countries?.map((c: Country) => c.region))];
   }, [countries]);
 
   const handleRegionChange = useCallback(
@@ -40,17 +37,17 @@ const CountriesFilter: React.FC<CountriesFilterProps> = ({
 
   return (
     <>
-      {regionNames?.length > 0 && (
+      {regionNames.length > 0 && (
         <div>
           <input
-            className={'search'}
+            className="search"
             type="text"
             placeholder="Search by country name"
             onChange={handleSearchChange}
           />
 
-          <select className={'select'} onChange={handleRegionChange}>
-            <option value={''}>Select a region</option>
+          <select className="select" onChange={handleRegionChange}>
+            <option value="">Select a region</option>
             {regionNames.map((name: string) => (
               <option key={name} value={name}>
                 {name}
@@ -58,7 +55,7 @@ const CountriesFilter: React.FC<CountriesFilterProps> = ({
             ))}
           </select>
 
-          <select className={'select'} onChange={handleSortChange}>
+          <select className="select" onChange={handleSortChange}>
             <option value={Sorting.NameAsc}>Name (A-Z)</option>
             <option value={Sorting.NameDesc}>Name (Z-A)</option>
             <option value={Sorting.PopulationAsc}>

@@ -1,21 +1,20 @@
 import { useGetAllCountriesQuery } from '../../store/countriesApiSlice.ts';
-import { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { Country } from '../../models/countries.model.ts';
-import { Sorting } from '../../models/soring.enum.ts';
 import CountriesFilter from '../CountriesFilter/CountriesFilter.tsx';
 import CountriesTable from '../CountriesTable/CountriesTable.tsx';
+import { Sorting } from '../../models/soring.enum.ts';
 
 export const Countries: React.FC = () => {
   const { data, isFetching, isError } = useGetAllCountriesQuery();
   const [countries, setCountries] = useState<Country[]>([]);
-  const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [search, setSearch] = useState<string>('');
   const [sorting, setSorting] = useState<Sorting>(Sorting.NameAsc);
 
   const sortCountries = useCallback(
     (countries: Country[], sorting: Sorting): Country[] => {
-      return countries.sort((a, b) => {
+      return [...countries].sort((a: Country, b: Country) => {
         switch (sorting) {
           case Sorting.NameAsc:
             return a.name.common.localeCompare(b.name.common);
@@ -33,31 +32,25 @@ export const Countries: React.FC = () => {
     []
   );
 
-  const filterAndSortCountries = useCallback(
-    (
-      countries: Country[],
-      selectedRegion: string | null,
-      search: string,
-      sorting: Sorting
-    ): Country[] => {
-      const filteredCountries = countries.filter(
-        (country: Country) =>
-          (selectedRegion ? country.region === selectedRegion : true) &&
-          country.name.common.toLowerCase().includes(search.toLowerCase())
-      );
-      return sortCountries(filteredCountries, sorting);
-    },
-    [selectedRegion, search, sorting]
-  );
+  const filteredCountries = useMemo(() => {
+    if (!data) {
+      return [];
+    }
+
+    const filtered = data.filter(
+      (country: Country): boolean =>
+        (selectedRegion ? country.region === selectedRegion : true) &&
+        country.name.common.toLowerCase().includes(search.toLowerCase())
+    );
+
+    return sortCountries(filtered, sorting);
+  }, [data, selectedRegion, search, sorting, sortCountries]);
 
   useEffect(() => {
     if (data) {
       setCountries(data);
-      setFilteredCountries(
-        filterAndSortCountries(data, selectedRegion, search, sorting)
-      );
     }
-  }, [data, selectedRegion, search, sorting, filterAndSortCountries]);
+  }, [data]);
 
   return (
     <>
