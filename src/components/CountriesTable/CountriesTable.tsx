@@ -5,9 +5,8 @@ import { Country } from '../../models/countries.model.ts';
 
 export const CountriesTable: React.FC = () => {
   const countries = useSelector(
-    (state: RootState) => state.countriesReducer.countries
+    (state: RootState) => state.countriesReducer.filteredCountries
   );
-  console.log('Countries from Redux:', countries);
 
   return (
     <>
