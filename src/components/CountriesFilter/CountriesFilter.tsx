@@ -1,41 +1,29 @@
-import React, { useMemo } from 'react';
-import { RootState } from '../../store/store.ts';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import './CountriesFilter.css';
-import {
-  filterCountriesByRegion,
-  filterCountriesBySearch,
-  sortCountriesByParam,
-} from '../../store/countriesSlice.ts';
 import { Country } from '../../models/countries.model.ts';
 import { Sorting } from '../../models/soring.enum.ts';
+import { CountriesFilterProps } from '../../models/countries-info.model.ts';
 
-const CountriesFilter: React.FC = () => {
-  const dispatch = useDispatch();
-  const searchTerm = useSelector(
-    (state: RootState) => state.countriesReducer.search
-  );
-  const countries = useSelector(
-    (state: RootState) => state.countriesReducer.countries
-  );
-  const regionNames = useMemo(() => {
-    const regions: string[] = countries.map(
-      (country: Country) => country.region
-    );
-    return [...new Set(regions)];
-  }, [countries]);
+export const CountriesFilter: React.FC<CountriesFilterProps> = ({
+  countries,
+  setSelectedRegion,
+  setSearch,
+  setSorting,
+}) => {
+  const regions: string[] = countries.map((country: Country) => country.region);
+  const regionNames = [...new Set(regions)];
 
-  function handleRegionChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    dispatch(filterCountriesByRegion(event.target.value || null));
-  }
+  const handleRegionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedRegion(event.target.value || null);
+  };
 
-  function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
-    dispatch(filterCountriesBySearch(event.target.value));
-  }
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
 
-  function handleSortChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    dispatch(sortCountriesByParam(event.target.value || null));
-  }
+  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSorting(event.target.value as Sorting);
+  };
 
   return (
     <>
@@ -45,7 +33,6 @@ const CountriesFilter: React.FC = () => {
             className={'search'}
             type="text"
             placeholder="Search by country name"
-            value={searchTerm}
             onChange={handleSearchChange}
           />
 
@@ -74,4 +61,4 @@ const CountriesFilter: React.FC = () => {
   );
 };
 
-export default React.memo(CountriesFilter);
+// export default React.memo(CountriesFilter);
