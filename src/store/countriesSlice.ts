@@ -90,7 +90,6 @@ function filterAndSortCountries(
       country.name.common.toLowerCase().includes(search.toLowerCase())
   );
   const sortedCountries = sortCountries(filteredCountries, sorting);
-  console.log(sortedCountries);
   return sortedCountries;
 }
 

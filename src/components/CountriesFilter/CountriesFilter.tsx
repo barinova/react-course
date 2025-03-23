@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { RootState } from '../../store/store.ts';
 import { useDispatch, useSelector } from 'react-redux';
 import './CountriesFilter.css';
@@ -10,17 +10,20 @@ import {
 import { Country } from '../../models/countries.model.ts';
 import { Sorting } from '../../models/soring.enum.ts';
 
-export const CountriesFilter: React.FC = () => {
+const CountriesFilter: React.FC = () => {
   const dispatch = useDispatch();
-  const regionNames = useSelector((state: RootState) => {
-    const regions: string[] = state.countriesReducer.countries.map(
-      (country: Country) => country.region
-    );
-    return [...new Set(regions)];
-  });
   const searchTerm = useSelector(
     (state: RootState) => state.countriesReducer.search
   );
+  const countries = useSelector(
+    (state: RootState) => state.countriesReducer.countries
+  );
+  const regionNames = useMemo(() => {
+    const regions: string[] = countries.map(
+      (country: Country) => country.region
+    );
+    return [...new Set(regions)];
+  }, [countries]);
 
   function handleRegionChange(event: React.ChangeEvent<HTMLSelectElement>) {
     dispatch(filterCountriesByRegion(event.target.value || null));
@@ -70,3 +73,5 @@ export const CountriesFilter: React.FC = () => {
     </>
   );
 };
+
+export default React.memo(CountriesFilter);

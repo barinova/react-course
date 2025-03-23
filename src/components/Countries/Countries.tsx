@@ -2,8 +2,8 @@ import { useGetAllCountriesQuery } from '../../store/countriesApiSlice.ts';
 import { useEffect } from 'react';
 import { addCountries } from '../../store/countriesSlice.ts';
 import { useDispatch } from 'react-redux';
-import { CountriesTable } from '../CountriesTable/CountriesTable.tsx';
-import { CountriesFilter } from '../CountriesFilter/CountriesFilter.tsx';
+import CountriesTable from '../CountriesTable/CountriesTable.tsx';
+import CountriesFilter from '../CountriesFilter/CountriesFilter.tsx';
 
 export const Countries: React.FC = () => {
   const dispatch = useDispatch();
