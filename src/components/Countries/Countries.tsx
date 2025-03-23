@@ -13,14 +13,25 @@ export const Countries: React.FC = () => {
   const [search, setSearch] = useState<string>('');
   const [sorting, setSorting] = useState<Sorting>(Sorting.NameAsc);
 
-  useEffect(() => {
-    if (data) {
-      setCountries(data);
-      setFilteredCountries(
-        filterAndSortCountries(data, selectedRegion, search, sorting)
-      );
-    }
-  }, [data, selectedRegion, search, sorting]);
+  const sortCountries = useCallback(
+    (countries: Country[], sorting: Sorting): Country[] => {
+      return countries.sort((a, b) => {
+        switch (sorting) {
+          case Sorting.NameAsc:
+            return a.name.common.localeCompare(b.name.common);
+          case Sorting.NameDesc:
+            return b.name.common.localeCompare(a.name.common);
+          case Sorting.PopulationAsc:
+            return a.population - b.population;
+          case Sorting.PopulationDesc:
+            return b.population - a.population;
+          default:
+            return 0;
+        }
+      });
+    },
+    []
+  );
 
   const filterAndSortCountries = useCallback(
     (
@@ -39,22 +50,14 @@ export const Countries: React.FC = () => {
     [selectedRegion, search, sorting]
   );
 
-  const sortCountries = (countries: Country[], sorting: Sorting): Country[] => {
-    return countries.sort((a, b) => {
-      switch (sorting) {
-        case Sorting.NameAsc:
-          return a.name.common.localeCompare(b.name.common);
-        case Sorting.NameDesc:
-          return b.name.common.localeCompare(a.name.common);
-        case Sorting.PopulationAsc:
-          return a.population - b.population;
-        case Sorting.PopulationDesc:
-          return b.population - a.population;
-        default:
-          return 0;
-      }
-    });
-  };
+  useEffect(() => {
+    if (data) {
+      setCountries(data);
+      setFilteredCountries(
+        filterAndSortCountries(data, selectedRegion, search, sorting)
+      );
+    }
+  }, [data, selectedRegion, search, sorting, filterAndSortCountries]);
 
   return (
     <>
@@ -62,7 +65,6 @@ export const Countries: React.FC = () => {
       {isError && <div>Error loading countries</div>}
       <CountriesFilter
         countries={countries}
-        setFilteredCountries={setFilteredCountries}
         setSelectedRegion={setSelectedRegion}
         setSearch={setSearch}
         setSorting={setSorting}
