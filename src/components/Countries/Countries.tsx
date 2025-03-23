@@ -1,9 +1,9 @@
 import { useGetAllCountriesQuery } from '../../store/countriesApiSlice.ts';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Country } from '../../models/countries.model.ts';
 import { Sorting } from '../../models/soring.enum.ts';
-import { CountriesFilter } from '../CountriesFilter/CountriesFilter.tsx';
-import { CountriesTable } from '../CountriesTable/CountriesTable.tsx';
+import CountriesFilter from '../CountriesFilter/CountriesFilter.tsx';
+import CountriesTable from '../CountriesTable/CountriesTable.tsx';
 
 export const Countries: React.FC = () => {
   const { data, isFetching, isError } = useGetAllCountriesQuery();
@@ -22,19 +22,22 @@ export const Countries: React.FC = () => {
     }
   }, [data, selectedRegion, search, sorting]);
 
-  const filterAndSortCountries = (
-    countries: Country[],
-    selectedRegion: string | null,
-    search: string,
-    sorting: Sorting
-  ): Country[] => {
-    const filteredCountries = countries.filter(
-      (country: Country) =>
-        (selectedRegion ? country.region === selectedRegion : true) &&
-        country.name.common.toLowerCase().includes(search.toLowerCase())
-    );
-    return sortCountries(filteredCountries, sorting);
-  };
+  const filterAndSortCountries = useCallback(
+    (
+      countries: Country[],
+      selectedRegion: string | null,
+      search: string,
+      sorting: Sorting
+    ): Country[] => {
+      const filteredCountries = countries.filter(
+        (country: Country) =>
+          (selectedRegion ? country.region === selectedRegion : true) &&
+          country.name.common.toLowerCase().includes(search.toLowerCase())
+      );
+      return sortCountries(filteredCountries, sorting);
+    },
+    [selectedRegion, search, sorting]
+  );
 
   const sortCountries = (countries: Country[], sorting: Sorting): Country[] => {
     return countries.sort((a, b) => {

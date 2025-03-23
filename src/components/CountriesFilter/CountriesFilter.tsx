@@ -1,29 +1,42 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import './CountriesFilter.css';
 import { Country } from '../../models/countries.model.ts';
 import { Sorting } from '../../models/soring.enum.ts';
 import { CountriesFilterProps } from '../../models/countries-info.model.ts';
 
-export const CountriesFilter: React.FC<CountriesFilterProps> = ({
+const CountriesFilter: React.FC<CountriesFilterProps> = ({
   countries,
   setSelectedRegion,
   setSearch,
   setSorting,
 }) => {
-  const regions: string[] = countries.map((country: Country) => country.region);
-  const regionNames = [...new Set(regions)];
+  const regionNames = useMemo(() => {
+    const regions: string[] = countries.map(
+      (country: Country) => country.region
+    );
+    return [...new Set(regions)];
+  }, [countries]);
 
-  const handleRegionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedRegion(event.target.value || null);
-  };
+  const handleRegionChange = useCallback(
+    (event: React.ChangeEvent<HTMLSelectElement>) => {
+      setSelectedRegion(event.target.value || null);
+    },
+    [setSelectedRegion]
+  );
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  };
+  const handleSearchChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSearch(event.target.value);
+    },
+    [setSearch]
+  );
 
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSorting(event.target.value as Sorting);
-  };
+  const handleSortChange = useCallback(
+    (event: React.ChangeEvent<HTMLSelectElement>) => {
+      setSorting(event.target.value as Sorting);
+    },
+    [setSorting]
+  );
 
   return (
     <>
@@ -61,4 +74,4 @@ export const CountriesFilter: React.FC<CountriesFilterProps> = ({
   );
 };
 
-// export default React.memo(CountriesFilter);
+export default React.memo(CountriesFilter);

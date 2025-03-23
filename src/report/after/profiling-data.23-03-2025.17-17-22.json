@@ -1,0 +1,1806 @@
+{
+  "version": 5,
+  "dataForRoots": [
+    {
+      "commitData": [
+        {
+          "changeDescriptions": [
+            [
+              5,
+              {
+                "context": false,
+                "didHooksChange": true,
+                "isFirstMount": false,
+                "props": [],
+                "state": null,
+                "hooks": [
+                  33
+                ]
+              }
+            ]
+          ],
+          "duration": 0.1,
+          "effectDuration": 0,
+          "fiberActualDurations": [
+            [
+              5,
+              0.1
+            ]
+          ],
+          "fiberSelfDurations": [
+            [
+              5,
+              0.1
+            ]
+          ],
+          "passiveEffectDuration": 1.4,
+          "priorityLevel": "Immediate",
+          "timestamp": 811.2000000029802,
+          "updaters": [
+            {
+              "displayName": "Countries",
+              "id": 5,
+              "key": null,
+              "type": 5,
+              "hocDisplayNames": null,
+              "compiledWithForget": false
+            }
+          ]
+        },
+        {
+          "changeDescriptions": [
+            [
+              7,
+              {
+                "context": false,
+                "didHooksChange": false,
+                "isFirstMount": false,
+                "props": [
+                  "countries"
+                ],
+                "state": null,
+                "hooks": null
+              }
+            ],
+            [
+              5,
+              {
+                "context": false,
+                "didHooksChange": true,
+                "isFirstMount": false,
+                "props": [],
+                "state": null,
+                "hooks": [
+                  31
+                ]
+              }
+            ]
+          ],
+          "duration": 7.2,
+          "effectDuration": 0,
+          "fiberActualDurations": [
+            [
+              7,
+              6.8
+            ],
+            [
+              5,
+              7.2
+            ]
+          ],
+          "fiberSelfDurations": [
+            [
+              7,
+              3.8
+            ],
+            [
+              5,
+              0.4
+            ]
+          ],
+          "passiveEffectDuration": 0,
+          "priorityLevel": "Normal",
+          "timestamp": 828.7999999970198,
+          "updaters": [
+            {
+              "displayName": "Countries",
+              "id": 5,
+              "key": null,
+              "type": 5,
+              "hocDisplayNames": null,
+              "compiledWithForget": false
+            }
+          ]
+        },
+        {
+          "changeDescriptions": [
+            [
+              5,
+              {
+                "context": false,
+                "didHooksChange": true,
+                "isFirstMount": false,
+                "props": [],
+                "state": null,
+                "hooks": [
+                  33
+                ]
+              }
+            ]
+          ],
+          "duration": 0.2,
+          "effectDuration": 0,
+          "fiberActualDurations": [
+            [
+              5,
+              0.2
+            ]
+          ],
+          "fiberSelfDurations": [
+            [
+              5,
+              0.2
+            ]
+          ],
+          "passiveEffectDuration": 0.7,
+          "priorityLevel": "Immediate",
+          "timestamp": 943.4000000059605,
+          "updaters": [
+            {
+              "displayName": "Countries",
+              "id": 5,
+              "key": null,
+              "type": 5,
+              "hocDisplayNames": null,
+              "compiledWithForget": false
+            }
+          ]
+        },
+        {
+          "changeDescriptions": [
+            [
+              7,
+              {
+                "context": false,
+                "didHooksChange": false,
+                "isFirstMount": false,
+                "props": [
+                  "countries"
+                ],
+                "state": null,
+                "hooks": null
+              }
+            ],
+            [
+              5,
+              {
+                "context": false,
+                "didHooksChange": true,
+                "isFirstMount": false,
+                "props": [],
+                "state": null,
+                "hooks": [
+                  31
+                ]
+              }
+            ]
+          ],
+          "duration": 1.1,
+          "effectDuration": 0,
+          "fiberActualDurations": [
+            [
+              7,
+              0.9
+            ],
+            [
+              5,
+              1.1
+            ]
+          ],
+          "fiberSelfDurations": [
+            [
+              7,
+              0.8
+            ],
+            [
+              5,
+              0.2
+            ]
+          ],
+          "passiveEffectDuration": 0,
+          "priorityLevel": "Normal",
+          "timestamp": 952.2999999970198,
+          "updaters": [
+            {
+              "displayName": "Countries",
+              "id": 5,
+              "key": null,
+              "type": 5,
+              "hocDisplayNames": null,
+              "compiledWithForget": false
+            }
+          ]
+        },
+        {
+          "changeDescriptions": [
+            [
+              5,
+              {
+                "context": false,
+                "didHooksChange": true,
+                "isFirstMount": false,
+                "props": [],
+                "state": null,
+                "hooks": [
+                  33
+                ]
+              }
+            ]
+          ],
+          "duration": 0.1,
+          "effectDuration": 0,
+          "fiberActualDurations": [
+            [
+              5,
+              0.1
+            ]
+          ],
+          "fiberSelfDurations": [
+            [
+              5,
+              0.1
+            ]
+          ],
+          "passiveEffectDuration": 1.8,
+          "priorityLevel": "Immediate",
+          "timestamp": 3095.2000000029802,
+          "updaters": [
+            {
+              "displayName": "Countries",
+              "id": 5,
+              "key": null,
+              "type": 5,
+              "hocDisplayNames": null,
+              "compiledWithForget": false
+            }
+          ]
+        },
+        {
+          "changeDescriptions": [
+            [
+              7,
+              {
+                "context": false,
+                "didHooksChange": false,
+                "isFirstMount": false,
+                "props": [
+                  "countries"
+                ],
+                "state": null,
+                "hooks": null
+              }
+            ],
+            [
+              5,
+              {
+                "context": false,
+                "didHooksChange": true,
+                "isFirstMount": false,
+                "props": [],
+                "state": null,
+                "hooks": [
+                  31
+                ]
+              }
+            ]
+          ],
+          "duration": 69.6,
+          "effectDuration": 0,
+          "fiberActualDurations": [
+            [
+              7,
+              69.5
+            ],
+            [
+              5,
+              69.6
+            ]
+          ],
+          "fiberSelfDurations": [
+            [
+              7,
+              4.7
+            ],
+            [
+              5,
+              0.1
+            ]
+          ],
+          "passiveEffectDuration": 0.1,
+          "priorityLevel": "Normal",
+          "timestamp": 3204.4000000059605,
+          "updaters": [
+            {
+              "displayName": "Countries",
+              "id": 5,
+              "key": null,
+              "type": 5,
+              "hocDisplayNames": null,
+              "compiledWithForget": false
+            }
+          ]
+        }
+      ],
+      "displayName": "Provider",
+      "initialTreeBaseDurations": [
+        [
+          1,
+          18.299999997019768
+        ],
+        [
+          2,
+          15.299999997019768
+        ],
+        [
+          3,
+          12.299999997019768
+        ],
+        [
+          4,
+          12.299999997019768
+        ],
+        [
+          5,
+          11.099999994039536
+        ],
+        [
+          6,
+          0.800000011920929
+        ],
+        [
+          7,
+          9.899999991059303
+        ]
+      ],
+      "operations": [
+        [
+          1,
+          1,
+          0,
+          4,
+          5,
+          10799,
+          4,
+          4,
+          12000,
+          4,
+          3,
+          12000,
+          4,
+          2,
+          15000,
+          4,
+          1,
+          18000
+        ],
+        [
+          1,
+          1,
+          0,
+          4,
+          7,
+          5599,
+          4,
+          5,
+          6800,
+          4,
+          4,
+          8000,
+          4,
+          3,
+          8000,
+          4,
+          2,
+          11000,
+          4,
+          1,
+          14000
+        ],
+        [
+          1,
+          1,
+          0,
+          4,
+          5,
+          6600,
+          4,
+          4,
+          7800,
+          4,
+          3,
+          7800,
+          4,
+          2,
+          10800,
+          4,
+          1,
+          13800
+        ],
+        [
+          1,
+          1,
+          0,
+          4,
+          7,
+          899,
+          4,
+          5,
+          1900,
+          4,
+          4,
+          3100,
+          4,
+          3,
+          3100,
+          4,
+          2,
+          6100,
+          4,
+          1,
+          9100
+        ],
+        [
+          1,
+          1,
+          0,
+          4,
+          5,
+          1799,
+          4,
+          4,
+          3000,
+          4,
+          3,
+          3000,
+          4,
+          2,
+          6000,
+          4,
+          1,
+          9000
+        ],
+        [
+          1,
+          1,
+          0,
+          4,
+          7,
+          8199,
+          4,
+          5,
+          9099,
+          4,
+          4,
+          10299,
+          4,
+          3,
+          10299,
+          4,
+          2,
+          13299,
+          4,
+          1,
+          16299
+        ]
+      ],
+      "rootID": 1,
+      "snapshots": [
+        [
+          1,
+          {
+            "id": 1,
+            "children": [
+              2
+            ],
+            "displayName": null,
+            "hocDisplayNames": null,
+            "key": null,
+            "type": 11,
+            "compiledWithForget": false
+          }
+        ],
+        [
+          2,
+          {
+            "id": 2,
+            "children": [
+              3
+            ],
+            "displayName": "Provider",
+            "hocDisplayNames": null,
+            "key": null,
+            "type": 5,
+            "compiledWithForget": false
+          }
+        ],
+        [
+          3,
+          {
+            "id": 3,
+            "children": [
+              4
+            ],
+            "displayName": "ReactRedux.Provider",
+            "hocDisplayNames": null,
+            "key": null,
+            "type": 2,
+            "compiledWithForget": false
+          }
+        ],
+        [
+          4,
+          {
+            "id": 4,
+            "children": [
+              5
+            ],
+            "displayName": "App",
+            "hocDisplayNames": null,
+            "key": null,
+            "type": 1,
+            "compiledWithForget": false
+          }
+        ],
+        [
+          5,
+          {
+            "id": 5,
+            "children": [
+              6,
+              7
+            ],
+            "displayName": "Countries",
+            "hocDisplayNames": null,
+            "key": null,
+            "type": 5,
+            "compiledWithForget": false
+          }
+        ],
+        [
+          6,
+          {
+            "id": 6,
+            "children": [],
+            "displayName": "CountriesFilter",
+            "hocDisplayNames": [
+              "Memo"
+            ],
+            "key": null,
+            "type": 8,
+            "compiledWithForget": false
+          }
+        ],
+        [
+          7,
+          {
+            "id": 7,
+            "children": [],
+            "displayName": "CountriesTable",
+            "hocDisplayNames": [
+              "Memo"
+            ],
+            "key": null,
+            "type": 8,
+            "compiledWithForget": false
+          }
+        ]
+      ]
+    }
+  ],
+  "timelineData": [
+    {
+      "batchUIDToMeasuresKeyValueArray": [
+        [
+          1,
+          [
+            {
+              "type": "render-idle",
+              "batchUID": 1,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 10.400000005960464,
+              "duration": 3.2999999970197678
+            },
+            {
+              "type": "render",
+              "batchUID": 1,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 10.400000005960464,
+              "duration": 0.20000000298023224
+            },
+            {
+              "type": "commit",
+              "batchUID": 1,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 10.600000008940697,
+              "duration": 3.0999999940395355
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 1,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 11.300000011920929,
+              "duration": 0.09999999403953552
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 1,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 12.300000011920929,
+              "duration": 1.3999999910593033
+            }
+          ]
+        ],
+        [
+          2,
+          [
+            {
+              "type": "render-idle",
+              "batchUID": 2,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 17.200000002980232,
+              "duration": 11.900000005960464
+            },
+            {
+              "type": "render",
+              "batchUID": 2,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 17.200000002980232,
+              "duration": 7.299999997019768
+            },
+            {
+              "type": "commit",
+              "batchUID": 2,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 24.5,
+              "duration": 4.600000008940697
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 2,
+              "depth": 1,
+              "lanes": [
+                32
+              ],
+              "timestamp": 28.700000002980232,
+              "duration": 0.29999999701976776
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 2,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 37.5,
+              "duration": 0
+            }
+          ]
+        ],
+        [
+          3,
+          [
+            {
+              "type": "render-idle",
+              "batchUID": 3,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 142.70000000298023,
+              "duration": 2.1000000089406967
+            },
+            {
+              "type": "render",
+              "batchUID": 3,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 142.70000000298023,
+              "duration": 0.20000000298023224
+            },
+            {
+              "type": "commit",
+              "batchUID": 3,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 142.90000000596046,
+              "duration": 1.9000000059604645
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 3,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 143.6000000089407,
+              "duration": 0
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 3,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 144.1000000089407,
+              "duration": 0.7000000029802322
+            }
+          ]
+        ],
+        [
+          4,
+          [
+            {
+              "type": "render-idle",
+              "batchUID": 4,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 148.1000000089407,
+              "duration": 4.399999991059303
+            },
+            {
+              "type": "render",
+              "batchUID": 4,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 148.1000000089407,
+              "duration": 1.0999999940395355
+            },
+            {
+              "type": "commit",
+              "batchUID": 4,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 149.20000000298023,
+              "duration": 3.2999999970197678
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 4,
+              "depth": 1,
+              "lanes": [
+                32
+              ],
+              "timestamp": 152.5,
+              "duration": 0
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 4,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 152.5,
+              "duration": 0.800000011920929
+            }
+          ]
+        ],
+        [
+          5,
+          [
+            {
+              "type": "render-idle",
+              "batchUID": 5,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2294.300000011921,
+              "duration": 2.8999999910593033
+            },
+            {
+              "type": "render",
+              "batchUID": 5,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2294.300000011921,
+              "duration": 0.09999999403953552
+            },
+            {
+              "type": "commit",
+              "batchUID": 5,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2294.4000000059605,
+              "duration": 2.7999999970197678
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 5,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2295.4000000059605,
+              "duration": 0
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 5,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2295.4000000059605,
+              "duration": 1.7999999970197678
+            }
+          ]
+        ],
+        [
+          6,
+          [
+            {
+              "type": "render-idle",
+              "batchUID": 6,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2299.1000000089407,
+              "duration": 106.29999999701977
+            },
+            {
+              "type": "render",
+              "batchUID": 6,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2299.1000000089407,
+              "duration": 70.20000000298023
+            },
+            {
+              "type": "commit",
+              "batchUID": 6,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2369.800000011921,
+              "duration": 35.599999994039536
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 6,
+              "depth": 1,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2373.5,
+              "duration": 31.100000008940697
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 6,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2532.1000000089407,
+              "duration": 0.09999999403953552
+            }
+          ]
+        ]
+      ],
+      "componentMeasures": [
+        {
+          "componentName": "Countries",
+          "duration": 0.09999999403953552,
+          "timestamp": 10.400000005960464,
+          "type": "render",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 12.300000011920929,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 12.300000011920929,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 12.300000011920929,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 1.3999999910593033,
+          "timestamp": 12.300000011920929,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0.10000000894069672,
+          "timestamp": 17.5,
+          "type": "render",
+          "warning": null
+        },
+        {
+          "componentName": "Memo(CountriesTable)",
+          "duration": 3.7999999970197678,
+          "timestamp": 17.600000008940697,
+          "type": "render",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 37.5,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 37.5,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 37.5,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0.20000000298023224,
+          "timestamp": 142.70000000298023,
+          "type": "render",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 144.1000000089407,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 144.1000000089407,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 144.1000000089407,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0.7000000029802322,
+          "timestamp": 144.1000000089407,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0.10000000894069672,
+          "timestamp": 148.20000000298023,
+          "type": "render",
+          "warning": null
+        },
+        {
+          "componentName": "Memo(CountriesTable)",
+          "duration": 0.7999999970197678,
+          "timestamp": 148.30000001192093,
+          "type": "render",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 153.30000001192093,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 153.30000001192093,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 153.30000001192093,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0.09999999403953552,
+          "timestamp": 2294.300000011921,
+          "type": "render",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 2295.4000000059605,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 2295.4000000059605,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0.09999999403953552,
+          "timestamp": 2295.4000000059605,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 1.7000000029802322,
+          "timestamp": 2295.5,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0.09999999403953552,
+          "timestamp": 2299.4000000059605,
+          "type": "render",
+          "warning": null
+        },
+        {
+          "componentName": "Memo(CountriesTable)",
+          "duration": 4.700000002980232,
+          "timestamp": 2299.5,
+          "type": "render",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0.09999999403953552,
+          "timestamp": 2532.1000000089407,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 2532.2000000029802,
+          "type": "passive-effect-mount",
+          "warning": null
+        },
+        {
+          "componentName": "Countries",
+          "duration": 0,
+          "timestamp": 2532.2000000029802,
+          "type": "passive-effect-mount",
+          "warning": null
+        }
+      ],
+      "duration": 2542.2000000029802,
+      "flamechart": [],
+      "internalModuleSourceToRanges": [],
+      "laneToLabelKeyValueArray": [
+        [
+          1,
+          "SyncHydrationLane"
+        ],
+        [
+          2,
+          "Sync"
+        ],
+        [
+          4,
+          "InputContinuousHydration"
+        ],
+        [
+          8,
+          "InputContinuous"
+        ],
+        [
+          16,
+          "DefaultHydration"
+        ],
+        [
+          32,
+          "Default"
+        ],
+        [
+          64,
+          "TransitionHydration"
+        ],
+        [
+          128,
+          "Transition"
+        ],
+        [
+          256,
+          "Transition"
+        ],
+        [
+          512,
+          "Transition"
+        ],
+        [
+          1024,
+          "Transition"
+        ],
+        [
+          2048,
+          "Transition"
+        ],
+        [
+          4096,
+          "Transition"
+        ],
+        [
+          8192,
+          "Transition"
+        ],
+        [
+          16384,
+          "Transition"
+        ],
+        [
+          32768,
+          "Transition"
+        ],
+        [
+          65536,
+          "Transition"
+        ],
+        [
+          131072,
+          "Transition"
+        ],
+        [
+          262144,
+          "Transition"
+        ],
+        [
+          524288,
+          "Transition"
+        ],
+        [
+          1048576,
+          "Transition"
+        ],
+        [
+          2097152,
+          "Transition"
+        ],
+        [
+          4194304,
+          "Retry"
+        ],
+        [
+          8388608,
+          "Retry"
+        ],
+        [
+          16777216,
+          "Retry"
+        ],
+        [
+          33554432,
+          "Retry"
+        ],
+        [
+          67108864,
+          "SelectiveHydration"
+        ],
+        [
+          134217728,
+          "IdleHydration"
+        ],
+        [
+          268435456,
+          "Idle"
+        ],
+        [
+          536870912,
+          "Offscreen"
+        ],
+        [
+          1073741824,
+          "Deferred"
+        ]
+      ],
+      "laneToReactMeasureKeyValueArray": [
+        [
+          1,
+          []
+        ],
+        [
+          2,
+          [
+            {
+              "type": "render-idle",
+              "batchUID": 1,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 10.400000005960464,
+              "duration": 3.2999999970197678
+            },
+            {
+              "type": "render",
+              "batchUID": 1,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 10.400000005960464,
+              "duration": 0.20000000298023224
+            },
+            {
+              "type": "commit",
+              "batchUID": 1,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 10.600000008940697,
+              "duration": 3.0999999940395355
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 1,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 11.300000011920929,
+              "duration": 0.09999999403953552
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 1,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 12.300000011920929,
+              "duration": 1.3999999910593033
+            },
+            {
+              "type": "render-idle",
+              "batchUID": 3,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 142.70000000298023,
+              "duration": 2.1000000089406967
+            },
+            {
+              "type": "render",
+              "batchUID": 3,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 142.70000000298023,
+              "duration": 0.20000000298023224
+            },
+            {
+              "type": "commit",
+              "batchUID": 3,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 142.90000000596046,
+              "duration": 1.9000000059604645
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 3,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 143.6000000089407,
+              "duration": 0
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 3,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 144.1000000089407,
+              "duration": 0.7000000029802322
+            },
+            {
+              "type": "render-idle",
+              "batchUID": 5,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2294.300000011921,
+              "duration": 2.8999999910593033
+            },
+            {
+              "type": "render",
+              "batchUID": 5,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2294.300000011921,
+              "duration": 0.09999999403953552
+            },
+            {
+              "type": "commit",
+              "batchUID": 5,
+              "depth": 0,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2294.4000000059605,
+              "duration": 2.7999999970197678
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 5,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2295.4000000059605,
+              "duration": 0
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 5,
+              "depth": 1,
+              "lanes": [
+                2
+              ],
+              "timestamp": 2295.4000000059605,
+              "duration": 1.7999999970197678
+            }
+          ]
+        ],
+        [
+          4,
+          []
+        ],
+        [
+          8,
+          []
+        ],
+        [
+          16,
+          []
+        ],
+        [
+          32,
+          [
+            {
+              "type": "render-idle",
+              "batchUID": 2,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 17.200000002980232,
+              "duration": 11.900000005960464
+            },
+            {
+              "type": "render",
+              "batchUID": 2,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 17.200000002980232,
+              "duration": 7.299999997019768
+            },
+            {
+              "type": "commit",
+              "batchUID": 2,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 24.5,
+              "duration": 4.600000008940697
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 2,
+              "depth": 1,
+              "lanes": [
+                32
+              ],
+              "timestamp": 28.700000002980232,
+              "duration": 0.29999999701976776
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 2,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 37.5,
+              "duration": 0
+            },
+            {
+              "type": "render-idle",
+              "batchUID": 4,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 148.1000000089407,
+              "duration": 4.399999991059303
+            },
+            {
+              "type": "render",
+              "batchUID": 4,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 148.1000000089407,
+              "duration": 1.0999999940395355
+            },
+            {
+              "type": "commit",
+              "batchUID": 4,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 149.20000000298023,
+              "duration": 3.2999999970197678
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 4,
+              "depth": 1,
+              "lanes": [
+                32
+              ],
+              "timestamp": 152.5,
+              "duration": 0
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 4,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 152.5,
+              "duration": 0.800000011920929
+            },
+            {
+              "type": "render-idle",
+              "batchUID": 6,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2299.1000000089407,
+              "duration": 106.29999999701977
+            },
+            {
+              "type": "render",
+              "batchUID": 6,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2299.1000000089407,
+              "duration": 70.20000000298023
+            },
+            {
+              "type": "commit",
+              "batchUID": 6,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2369.800000011921,
+              "duration": 35.599999994039536
+            },
+            {
+              "type": "layout-effects",
+              "batchUID": 6,
+              "depth": 1,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2373.5,
+              "duration": 31.100000008940697
+            },
+            {
+              "type": "passive-effects",
+              "batchUID": 6,
+              "depth": 0,
+              "lanes": [
+                32
+              ],
+              "timestamp": 2532.1000000089407,
+              "duration": 0.09999999403953552
+            }
+          ]
+        ],
+        [
+          64,
+          []
+        ],
+        [
+          128,
+          []
+        ],
+        [
+          256,
+          []
+        ],
+        [
+          512,
+          []
+        ],
+        [
+          1024,
+          []
+        ],
+        [
+          2048,
+          []
+        ],
+        [
+          4096,
+          []
+        ],
+        [
+          8192,
+          []
+        ],
+        [
+          16384,
+          []
+        ],
+        [
+          32768,
+          []
+        ],
+        [
+          65536,
+          []
+        ],
+        [
+          131072,
+          []
+        ],
+        [
+          262144,
+          []
+        ],
+        [
+          524288,
+          []
+        ],
+        [
+          1048576,
+          []
+        ],
+        [
+          2097152,
+          []
+        ],
+        [
+          4194304,
+          []
+        ],
+        [
+          8388608,
+          []
+        ],
+        [
+          16777216,
+          []
+        ],
+        [
+          33554432,
+          []
+        ],
+        [
+          67108864,
+          []
+        ],
+        [
+          134217728,
+          []
+        ],
+        [
+          268435456,
+          []
+        ],
+        [
+          536870912,
+          []
+        ],
+        [
+          1073741824,
+          []
+        ]
+      ],
+      "nativeEvents": [],
+      "networkMeasures": [],
+      "otherUserTimingMarks": [],
+      "reactVersion": "19.0.0",
+      "schedulingEvents": [
+        {
+          "componentName": "Countries",
+          "lanes": [
+            2
+          ],
+          "timestamp": 10,
+          "type": "schedule-state-update",
+          "warning": null,
+          "componentStack": "\n    at Countries (http://localhost:5173/src/components/Countries/Countries.tsx?t=1742746269911:25:41)\n    at App (http://localhost:5173/src/App.tsx?t=1742746269911:7:16)\n    at Provider (http://localhost:5173/node_modules/.vite/deps/chunk-OJFVQJ6T.js?v=3645a364:923:11)"
+        },
+        {
+          "componentName": "Countries",
+          "lanes": [
+            32
+          ],
+          "timestamp": 12.400000005960464,
+          "type": "schedule-state-update",
+          "warning": null,
+          "componentStack": "\n    at Countries (http://localhost:5173/src/components/Countries/Countries.tsx?t=1742746269911:25:41)\n    at App (http://localhost:5173/src/App.tsx?t=1742746269911:7:16)\n    at Provider (http://localhost:5173/node_modules/.vite/deps/chunk-OJFVQJ6T.js?v=3645a364:923:11)"
+        },
+        {
+          "componentName": "Countries",
+          "lanes": [
+            32
+          ],
+          "timestamp": 13.600000008940697,
+          "type": "schedule-state-update",
+          "warning": null,
+          "componentStack": "\n    at Countries (http://localhost:5173/src/components/Countries/Countries.tsx?t=1742746269911:25:41)\n    at App (http://localhost:5173/src/App.tsx?t=1742746269911:7:16)\n    at Provider (http://localhost:5173/node_modules/.vite/deps/chunk-OJFVQJ6T.js?v=3645a364:923:11)"
+        },
+        {
+          "componentName": "Countries",
+          "lanes": [
+            2
+          ],
+          "timestamp": 142.70000000298023,
+          "type": "schedule-state-update",
+          "warning": null,
+          "componentStack": "\n    at Countries (http://localhost:5173/src/components/Countries/Countries.tsx?t=1742746269911:25:41)\n    at App (http://localhost:5173/src/App.tsx?t=1742746269911:7:16)\n    at Provider (http://localhost:5173/node_modules/.vite/deps/chunk-OJFVQJ6T.js?v=3645a364:923:11)"
+        },
+        {
+          "componentName": "Countries",
+          "lanes": [
+            32
+          ],
+          "timestamp": 144.30000001192093,
+          "type": "schedule-state-update",
+          "warning": null,
+          "componentStack": "\n    at Countries (http://localhost:5173/src/components/Countries/Countries.tsx?t=1742746269911:25:41)\n    at App (http://localhost:5173/src/App.tsx?t=1742746269911:7:16)\n    at Provider (http://localhost:5173/node_modules/.vite/deps/chunk-OJFVQJ6T.js?v=3645a364:923:11)"
+        },
+        {
+          "componentName": "Countries",
+          "lanes": [
+            32
+          ],
+          "timestamp": 144.40000000596046,
+          "type": "schedule-state-update",
+          "warning": null,
+          "componentStack": "\n    at Countries (http://localhost:5173/src/components/Countries/Countries.tsx?t=1742746269911:25:41)\n    at App (http://localhost:5173/src/App.tsx?t=1742746269911:7:16)\n    at Provider (http://localhost:5173/node_modules/.vite/deps/chunk-OJFVQJ6T.js?v=3645a364:923:11)"
+        },
+        {
+          "componentName": "Countries",
+          "lanes": [
+            2
+          ],
+          "timestamp": 2294.300000011921,
+          "type": "schedule-state-update",
+          "warning": null,
+          "componentStack": "\n    at Countries (http://localhost:5173/src/components/Countries/Countries.tsx?t=1742746269911:25:41)\n    at App (http://localhost:5173/src/App.tsx?t=1742746269911:7:16)\n    at Provider (http://localhost:5173/node_modules/.vite/deps/chunk-OJFVQJ6T.js?v=3645a364:923:11)"
+        },
+        {
+          "componentName": "Countries",
+          "lanes": [
+            32
+          ],
+          "timestamp": 2295.800000011921,
+          "type": "schedule-state-update",
+          "warning": null,
+          "componentStack": "\n    at Countries (http://localhost:5173/src/components/Countries/Countries.tsx?t=1742746269911:25:41)\n    at App (http://localhost:5173/src/App.tsx?t=1742746269911:7:16)\n    at Provider (http://localhost:5173/node_modules/.vite/deps/chunk-OJFVQJ6T.js?v=3645a364:923:11)"
+        },
+        {
+          "componentName": "Countries",
+          "lanes": [
+            32
+          ],
+          "timestamp": 2297.2000000029802,
+          "type": "schedule-state-update",
+          "warning": null,
+          "componentStack": "\n    at Countries (http://localhost:5173/src/components/Countries/Countries.tsx?t=1742746269911:25:41)\n    at App (http://localhost:5173/src/App.tsx?t=1742746269911:7:16)\n    at Provider (http://localhost:5173/node_modules/.vite/deps/chunk-OJFVQJ6T.js?v=3645a364:923:11)"
+        }
+      ],
+      "snapshots": [],
+      "snapshotHeight": 0,
+      "startTime": 287901.39999999106,
+      "suspenseEvents": [],
+      "thrownErrors": []
+    }
+  ]
+}

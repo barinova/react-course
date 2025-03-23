@@ -6,9 +6,7 @@ interface CountriesTableProps {
   countries: Country[];
 }
 
-export const CountriesTable: React.FC<CountriesTableProps> = ({
-  countries,
-}) => {
+const CountriesTable: React.FC<CountriesTableProps> = ({ countries }) => {
   return (
     <>
       {countries.length > 0 ? (
@@ -45,4 +43,4 @@ export const CountriesTable: React.FC<CountriesTableProps> = ({
   );
 };
 
-// export default React.memo(CountriesTable);
+export default React.memo(CountriesTable);
