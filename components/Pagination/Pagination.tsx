@@ -1,0 +1,39 @@
+import './Pagination.css';
+import Button from '../Button/Button';
+
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
+
+const Pagination: React.FC<PaginationProps> = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+}: PaginationProps) => {
+  const handleNextPage = () => onPageChange(currentPage + 1);
+  const handlePreviousPage = () => onPageChange(currentPage - 1);
+
+  return (
+    <div className="pagination">
+      <Button
+        text={'Previous'}
+        disabled={currentPage === 1}
+        small={true}
+        onButtonClick={handlePreviousPage}
+      ></Button>
+      <span data-testid="pagination-text">
+        Page {currentPage} of {totalPages}
+      </span>
+      <Button
+        text={'Next'}
+        disabled={currentPage === totalPages}
+        small={true}
+        onButtonClick={handleNextPage}
+      ></Button>
+    </div>
+  );
+};
+
+export default Pagination;

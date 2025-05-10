@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e8a3b7b7-7982-445e-bad1-11f21eb06bb3" name="Changes" comment="add not found page">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Card/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CardList/CardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CardList/CardList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Details/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Details/Details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pagination/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pagination/Pagination.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/api/film.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/api/film.api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/selectedItemsSlice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/store/selectedItemsSlice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="nextjs-ssr-app-router-api" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;barinova&quot;
+  }
+}</component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="add simple example with store" />
+        <option name="rewordedMessage" value="add store with selected items" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="94a76d65a72cd5e55a2c9052152372d675743b6a" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/barinova/react-course.git&quot;,
+    &quot;accountId&quot;: &quot;7f2cb3b7-fe5b-46dc-8497-77d16001a178&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2sr3YP8uBNbpZbMKa5wjGwaiI2R" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#4 on nextjs-ssr-pages-api&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/anastasiia.barinova/repo/react-course&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/anastasiia.barinova/repo/react-course/node_modules/prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/anastasiia.barinova/repo/react-course/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/components" />
+      <recent name="$PROJECT_DIR$/old-app" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8a3b7b7-7982-445e-bad1-11f21eb06bb3" name="Changes" comment="" />
+      <created>1739199913860</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739199913860</updated>
+      <workItem from="1739199914941" duration="25151000" />
+      <workItem from="1739226065623" duration="7889000" />
+      <workItem from="1739562646138" duration="20935000" />
+      <workItem from="1740145252489" duration="6730000" />
+      <workItem from="1740236655904" duration="17554000" />
+      <workItem from="1740330183439" duration="9932000" />
+      <workItem from="1740585333925" duration="53000" />
+      <workItem from="1740597574828" duration="2111000" />
+      <workItem from="1740932821523" duration="16281000" />
+      <workItem from="1741435933202" duration="34440000" />
+      <workItem from="1741594821227" duration="133000" />
+      <workItem from="1742125609073" duration="969000" />
+    </task>
+    <task id="LOCAL-00001" summary="add jest">
+      <option name="closed" value="true" />
+      <created>1739201946976</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739201946976</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add cards">
+      <option name="closed" value="true" />
+      <created>1739204691217</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1739204691217</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add card test">
+      <option name="closed" value="true" />
+      <created>1739214921133</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1739214921133</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add card list test">
+      <option name="closed" value="true" />
+      <created>1739222518176</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1739222518176</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add details tests">
+      <option name="closed" value="true" />
+      <created>1739223440843</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1739223440843</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add other tests">
+      <option name="closed" value="true" />
+      <created>1739224824174</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1739224824174</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add other tests">
+      <option name="closed" value="true" />
+      <created>1739225442095</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1739225442095</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add unit tests">
+      <option name="closed" value="true" />
+      <created>1739226920126</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1739226920126</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update unit tests">
+      <option name="closed" value="true" />
+      <created>1739707276297</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1739707276297</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add hook">
+      <option name="closed" value="true" />
+      <created>1739709554052</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1739709554052</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add readme">
+      <option name="closed" value="true" />
+      <created>1739709872091</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739709872091</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add simple example with store">
+      <option name="closed" value="true" />
+      <created>1740249584516</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1740249584516</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add store with selected items">
+      <option name="closed" value="true" />
+      <created>1740261761531</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1740261761531</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add flyout element">
+      <option name="closed" value="true" />
+      <created>1740264903711</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1740264903711</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add theme switcher">
+      <option name="closed" value="true" />
+      <created>1740338187415</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1740338187415</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update after review">
+      <option name="closed" value="true" />
+      <created>1741450580703</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1741450580703</updated>
+    </task>
+    <task id="LOCAL-00017" summary="migrate to next with path routing">
+      <option name="closed" value="true" />
+      <created>1741527186086</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1741527186086</updated>
+    </task>
+    <task id="LOCAL-00018" summary="remove unused folder">
+      <option name="closed" value="true" />
+      <created>1741535207552</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1741535207552</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update to app routing">
+      <option name="closed" value="true" />
+      <created>1741548804666</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1741548804666</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add unit tests">
+      <option name="closed" value="true" />
+      <created>1741549110160</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1741549110160</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/1" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="app-state-management" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="hooks-and-routing" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="hooks-and-routing1" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="1" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="app-state-management" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add jest" />
+    <MESSAGE value="add cards" />
+    <MESSAGE value="add jest test" />
+    <MESSAGE value="add card test" />
+    <MESSAGE value="add card list test" />
+    <MESSAGE value="add details tests" />
+    <MESSAGE value="add other tests" />
+    <MESSAGE value="update logic" />
+    <MESSAGE value="update unit tests" />
+    <MESSAGE value="add hook" />
+    <MESSAGE value="add readme" />
+    <MESSAGE value="fix review comments" />
+    <MESSAGE value="add simple example with store" />
+    <MESSAGE value="add store with selected items" />
+    <MESSAGE value="add flyout element" />
+    <MESSAGE value="add theme switcher" />
+    <MESSAGE value="update after review" />
+    <MESSAGE value="migrate to next with path routing" />
+    <MESSAGE value="remove unused folder" />
+    <MESSAGE value="update to app routing" />
+    <MESSAGE value="add unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add unit tests" />
+  </component>
+</project>
